@@ -1,0 +1,20 @@
+/* body {
+  --background: hsl(87 53 97);
+  --on-background: hsl(110 12 10);
+  --primary: hsl(122 30 32);
+  --surface: hsl(110 10 12);
+  --surface--low: hsl(87 31 94);
+} */
+
+body {
+  --background: hsl(108 14 7);
+  --on-background: hsl(82 14 88);
+  --primary: hsl(117 39 72);
+  --surface: hsl(110 10 12);
+  --surface--low: hsl(110 12 10);
+}
+
+.background {
+  background-color: var(--background);
+  color: var(--on-background);
+}

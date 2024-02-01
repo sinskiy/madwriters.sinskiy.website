@@ -1,4 +1,4 @@
-<header>
+<!-- <header>
 	<nav>
 		<a href="https://github.com/Sinskiy/" target="_blank">
 			<span class="sr-only">Go to my GitHub</span>
@@ -10,4 +10,56 @@
 			>
 		</a>
 	</nav>
+</header> -->
+<header class="flex justify-between items-center">
+	<a title="Go to the home page" href="/#">
+		<img alt="logo" src="/logo.svg" width="48" height="36" />
+	</a>
+	<div class="relative">
+		<img
+			alt="search icon"
+			src="/search.svg"
+			width="16"
+			height="16"
+			class="absolute h-full left-8"
+		/>
+		<input
+			placeholder="Search"
+			name="page-search"
+			type="search"
+			class="pl-16 py-3 rounded-full text-onSurface bg-surface-low max-w-36 box-content text-xl"
+		/>
+	</div>
+	<div class="flex gap-4 items-center">
+		<a
+			title="Go to my GitHub profile"
+			href="https://github.com/Sinskiy/"
+			target="_blank"
+		>
+			<img alt="github logo" src="/github.svg" width="32" height="32" />
+		</a>
+		 <!-- <div class="relative">
+			<input
+				name="theme-toggler"
+				type="checkbox"
+				onChange={themeToggler}
+				class="absolute h-full w-full opacity-0"
+			/>
+			{darkMode ? (
+				<Image
+					alt="light mode icon"
+					src="light_mode.svg"
+					width="32"
+					height="32"
+				/>
+			) : (
+				<Image
+					alt="dark mode icon"
+					src="dark_mode.svg"
+					width="32"
+					height="32"
+				/>
+			)}
+		</div> -->
+	</div>
 </header>
