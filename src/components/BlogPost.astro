@@ -6,7 +6,7 @@ type Props = CollectionEntry<'blog'>['data'] & {type?: string };
 
 const { title, pubDate, updatedDate, type = "full" } = Astro.props;
 ---
-<article class:list={[type !== "full" && "hover:brightness-125 transition-[filter]", "bg-surface rounded-2xl px-16 py-8 w-full flex flex-col gap-8 relative"]}>
+<article class:list={[type !== "full" ? "hover:brightness-125 transition-[filter] gap-2" : "gap-8", "bg-surface rounded-2xl px-16 py-8 w-full flex flex-col relative"]}>
 	<header>
 		<h2 class="text-white text-4xl">{title}</h2>
 		<FormattedDate date={pubDate} />
@@ -18,11 +18,7 @@ const { title, pubDate, updatedDate, type = "full" } = Astro.props;
 			)
 		}
 	</header>
-	{
-		type === "full" && (
-		<div class="prose prose-invert prose-headings:my-6">
-			<slot />
-		</div>
-		)
-	}
+	<div class="prose prose-invert prose-headings:my-6">
+		<slot />
+	</div>
 </article>

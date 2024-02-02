@@ -1,8 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
-import FormattedDate from '../components/FormattedDate.astro';
 import Layout from '../layouts/Layout.astro';
-import BlogPost from '../components/BlogPost.astro';
+import Preview from '../components/Preview.astro';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
@@ -15,7 +14,7 @@ const posts = (await getCollection('blog')).sort(
 				posts.map((post) => (
 					<li>
 						<a href={`/${post.slug}/`}>
-							<BlogPost {...post.data} type="preview" />
+							<Preview post={post} />
 						</a>
 					</li>
 				))

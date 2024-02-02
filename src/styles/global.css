@@ -6,7 +6,15 @@
   --surface--low: hsl(87 31 94);
 } */
 
+@font-face {
+  font-family: "syne";
+  src: url("/fonts/syne.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
+  font-family: "syne", sans-serif;
   --background: hsl(108 14 7);
   --on-background: hsl(82 14 88);
   --primary: hsl(117 39 72);

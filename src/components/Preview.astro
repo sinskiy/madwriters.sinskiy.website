@@ -1,0 +1,14 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BlogPost from "./BlogPost.astro";
+
+interface Props {
+  post: CollectionEntry<'blog'>
+};
+
+const { post } = Astro.props
+const previewText = post.body.slice(1, 150) + "...";
+---
+<BlogPost {...post.data} type="preview">
+  {previewText}
+</BlogPost>
