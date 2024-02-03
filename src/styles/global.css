@@ -10,18 +10,22 @@ body {
   --background: hsl(87 53 97);
   --on-background: hsl(110 12 10);
   --primary: hsl(122 30 32);
+  --surface--highest: hsl(87 14 88);
   --surface: hsl(87 22 92);
   --surface--low: hsl(87 31 94);
-  --inverse: 0 0% 0%;
+  --normal: 360 100 100;
+  --inverse: 0 0 0;
 }
 
 body.dark {
   --background: hsl(108 14 7);
   --on-background: hsl(82 14 88);
   --primary: hsl(117 39 72);
+  --surface--highest: hsl(110 6 20);
   --surface: hsl(110 10 12);
   --surface--low: hsl(110 12 10);
-  --inverse: 360 100% 100%;
+  --normal: 0 0 0;
+  --inverse: 360 100 100;
 }
 
 .background {
