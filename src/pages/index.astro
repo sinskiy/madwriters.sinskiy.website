@@ -1,7 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
-import Preview from '../components/Preview.astro';
 import BlogPost from '../components/BlogPost.astro';
 
 const posts = (await getCollection('blog')).sort(

@@ -8,7 +8,7 @@ const { title, pubDate, updatedDate, type = "full" } = Astro.props;
 ---
 <article class:list={[type !== "full" ? "hover:brightness-125 transition-[filter] gap-2" : "gap-8", "bg-surface rounded-2xl px-16 py-8 w-full flex flex-col relative"]}>
 	<header>
-		<h2 class="text-white text-4xl">{title}</h2>
+		<h2 class="text-inverse text-4xl">{title}</h2>
 		<FormattedDate date={pubDate} />
 		{
 			updatedDate && (
@@ -18,7 +18,7 @@ const { title, pubDate, updatedDate, type = "full" } = Astro.props;
 			)
 		}
 	</header>
-	<div class="prose prose-invert prose-headings:my-6">
+	<div class="prose dark:prose-invert prose-headings:my-6">
 		<slot />
 	</div>
 </article>
