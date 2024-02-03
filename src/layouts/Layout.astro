@@ -3,16 +3,17 @@ import '../styles/global.css';
 import Header from "../components/Header.astro";
 import BaseHead from '../components/BaseHead.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import BlogTypesNav from '../components/BlogTypesNav.astro';
 ---
 <!doctype html>
 <html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/>
   </head>
-  <body class="background flex flex-col my-8 mx-[30%] gap-16">
+  <body class="background flex flex-col my-8 mx-[25%] gap-16">
     <Header />
     <div class="flex gap-16">
-      <!-- <Nav /> -->
+      <BlogTypesNav />
       <main class="w-full">
         <slot />
       </main>

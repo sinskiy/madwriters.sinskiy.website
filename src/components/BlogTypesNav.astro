@@ -1,0 +1,30 @@
+---
+const links = [
+  {
+    name: "all",
+    title: "all blogs",
+    href: "/",
+  },
+  {
+    name: "web",
+    title: "blogs about the web",
+  },
+  {
+    name: "life",
+    title: "blogs about my life",
+  },
+];
+---
+<nav class="flex flex-col gap-4 text-2xl items-center max-w-fit text-primary">
+  {
+    links.map((link) => (
+      <a
+        title={link.title}
+        href={link.href ? link.href : `/${link.name}`}
+        class="capitalize mx-8 text-xl"
+      >
+        {link.name}
+      </a>
+    ))
+  }
+</nav>
