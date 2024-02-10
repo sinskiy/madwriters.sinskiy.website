@@ -9,9 +9,11 @@ export default {
       normal: "hsl(var(--normal) / <alpha-value>)",
       inverse: "hsl(var(--inverse) / <alpha-value>)",
       primary: "var(--primary)",
+      onPrimary: "var(--on-primary)",
       onSurface: "var(--on-surface)",
       surface: {
         highest: "var(--surface--highest)",
+        high: "var(--surface--high)",
         DEFAULT: "var(--surface)",
         low: "var(--surface--low)",
       },

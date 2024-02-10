@@ -14,6 +14,8 @@ const links = [
     title: "blogs about my life",
   },
 ];
+const currentPath = Astro.url.pathname.split("/")[1];
+console.log(currentPath)
 ---
 <nav class="flex flex-col gap-4 text-2xl items-center max-w-fit text-primary">
   {
@@ -21,10 +23,15 @@ const links = [
       <a
         title={link.title}
         href={link.href ? link.href : `/${link.name}`}
-        class="capitalize mx-8 text-xl"
+        class:list={[((link.href && "") ?? link.name) === currentPath && "active", "capitalize mx-8 h-10 flex items-center justify-center min-w-full rounded-full text-xl"]}
       >
         {link.name}
       </a>
     ))
   }
 </nav>
+<style>
+  .active {
+    @apply bg-primary text-onPrimary
+  }
+</style>

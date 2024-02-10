@@ -4,6 +4,19 @@ import Header from "../components/Header.astro";
 import BaseHead from '../components/BaseHead.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import BlogTypesNav from '../components/BlogTypesNav.astro';
+import { getCollection } from 'astro:content';
+import BlogPost from '../components/BlogPost.astro';
+import { WEB_TAGS_LIST } from '../consts';
+import Tag from "../components/Tag.astro"
+
+const postsType = Astro.url.pathname.split("/")[1];
+const posts = await getCollection("blog");
+const filteredPosts = postsType ? posts.filter((post) => {
+	return post.data.type === postsType
+}) : posts
+const sortedPosts = filteredPosts.sort((a, b) =>
+	a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
 ---
 <!doctype html>
 <html lang="en">
@@ -15,7 +28,23 @@ import BlogTypesNav from '../components/BlogTypesNav.astro';
     <div class="flex gap-16">
       <BlogTypesNav />
       <main class="w-full">
-        <slot />
+        <section class="flex flex-col gap-4">
+          <slot />
+          <ul class="flex flex-col gap-4">
+            {
+              sortedPosts.map((post) => (
+                <li>
+                  <a href={`/${post.slug}/`}>
+                    <BlogPost {...post.data} displayType="preview">
+                      {post.body.slice(1, 150) + "..."}
+                    </BlogPost>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+          <slot name="after" />
+        </section>
       </main>
     </div>
   </body>
