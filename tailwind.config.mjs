@@ -10,6 +10,8 @@ export default {
       inverse: "hsl(var(--inverse) / <alpha-value>)",
       primary: "var(--primary)",
       onPrimary: "var(--on-primary)",
+      secondary: "var(--secondary)",
+      onSecondary: "var(--on-secondary)",
       onSurface: "var(--on-surface)",
       surface: {
         highest: "var(--surface--highest)",

@@ -22,7 +22,6 @@ const links = [
   },
 ];
 const currentPath = Astro.url.pathname.split("/")[1];
-console.log(currentPath)
 ---
 <nav class="flex flex-col gap-4 text-2xl items-center max-w-fit text-primary">
   {
@@ -30,7 +29,7 @@ console.log(currentPath)
       <a
         title={link.title}
         href={link.href ? link.href : `/${link.name}`}
-        class:list={[((link.href && "") ?? link.name) === currentPath ? "bg-primary text-onPrimary hover:brightness-125" : "hover:bg-surface-low", "transition-all capitalize mx-8 h-12 flex items-center justify-center gap-2 min-w-full rounded-full text-xl"]}
+        class:list={[((link.href && "") ?? link.name) === currentPath ? "bg-secondary text-onSecondary hover:brightness-125" : "hover:bg-surface", "transition-all capitalize mx-8 h-12 flex items-center justify-center gap-2 min-w-full rounded-full text-xl"]}
       >
         <svg width="16" height={link.height ?? "16"} viewBox={link.viewbox ?? "0 0 16 16"} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path d={link.path} />

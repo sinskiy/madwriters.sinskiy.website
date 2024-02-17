@@ -6,8 +6,6 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import BlogTypesNav from '../components/BlogTypesNav.astro';
 import { getCollection } from 'astro:content';
 import BlogPost from '../components/BlogPost.astro';
-import { WEB_TAGS_LIST } from '../consts';
-import Tag from "../components/Tag.astro"
 
 const postsType = Astro.url.pathname.split("/")[1];
 const posts = await getCollection("blog");

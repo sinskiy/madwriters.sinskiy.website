@@ -11,6 +11,8 @@ body {
   --on-background: hsl(110 12 10);
   --primary: hsl(122 30 32);
   --on-primary: white;
+  --secondary: hsl(114 11 35);
+  --on-secondary: white;
   --surface--highest: hsl(87 14 88);
   --surface--high: hsl(83 15 90);
   --surface: hsl(87 22 92);
@@ -25,6 +27,8 @@ body.dark {
   --on-background: hsl(82 14 88);
   --primary: hsl(117 39 72);
   --on-primary: hsl(134 84 12);
+  --secondary: hsl(108 19 75);
+  --on-secondary: hsl(120 18 17);
   --surface--highest: hsl(110 6 20);
   --surface--high: hsl(108 6 16);
   --surface: hsl(110 10 12);
