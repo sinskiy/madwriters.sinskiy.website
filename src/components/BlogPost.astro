@@ -9,7 +9,7 @@ const { title, pubDate, updatedDate, tags, displayType = "full" } = Astro.props;
 ---
 {
 	displayType === "full" &&
-		<ul class="flex gap-2">
+		<ul class="flex gap-2 flex-wrap">
 			{
 				tags.map((tag: string) => (
 					<li>
@@ -21,7 +21,7 @@ const { title, pubDate, updatedDate, tags, displayType = "full" } = Astro.props;
 }
 <article class:list={[displayType === "preview" ? "hover:brightness-125 transition-[filter] gap-2" : "gap-8", "bg-surface rounded-2xl px-16 py-8 w-full flex flex-col relative"]}>
 	<header>
-		<h2 class="text-inverse text-4xl">{title}</h2>
+		<h2 class="text-inverse text-2xl md:text-4xl">{title}</h2>
 		<FormattedDate date={pubDate} />
 		{
 			updatedDate && (
@@ -31,7 +31,7 @@ const { title, pubDate, updatedDate, tags, displayType = "full" } = Astro.props;
 			)
 		}
 	</header>
-	<div class="prose dark:prose-invert prose-headings:my-6">
+	<div class="prose dark:prose-invert break-words prose-sm sm:prose-base prose-headings:my-6">
 		<slot />
 	</div>
 </article>
