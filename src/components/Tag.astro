@@ -1,3 +1,6 @@
-<div class="bg-surface-high text-onSurface px-4 py-1 rounded-[4px]">
+---
+const { active } = Astro.props;
+---
+<div class:list={[active ? "bg-secondary text-onSecondary" : "bg-surface-high text-onSurface", "px-4 py-1 rounded-[4px]"]}>
   <slot />
 </div>

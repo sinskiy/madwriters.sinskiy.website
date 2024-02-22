@@ -1,0 +1,65 @@
+---
+import type { GetStaticPaths } from "astro";
+import { WEB_TAGS_LIST } from "../../consts"
+import Layout from "../../layouts/Layout.astro";
+import TagComponent from "../../components/Tag.astro";
+import { getCollection } from "astro:content";
+import BlogPost from "../../components/BlogPost.astro";
+export const getStaticPaths = (() => {
+  const tagPaths = WEB_TAGS_LIST.map((tag) => {
+    return {
+      params: { tag: tag },
+      props: { name: tag }
+    }
+  })
+  return tagPaths
+}) satisfies GetStaticPaths;
+
+const { tag } = Astro.params;
+
+const currentPath = Astro.url.pathname.split("/")[2];
+const posts = await getCollection("blog");
+const filteredPosts = posts.filter((post) => {
+  return post.data.tags.includes(tag);
+});
+const sortedPosts = filteredPosts.sort((a, b) =>
+	a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
+---
+<Layout>
+  <ul class="flex gap-2">
+    {
+      WEB_TAGS_LIST.map((tag) => (
+        <li>
+          <a href={`/tag/${tag}`}>
+            {tag === currentPath
+              ?
+              <TagComponent active>
+                {tag}
+              </TagComponent>
+              :
+              <TagComponent>
+                {tag}
+              </TagComponent>
+            }
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  {sortedPosts &&
+    <ul class="flex flex-col gap-4" slot="after">
+      {
+        sortedPosts.map((post) => (
+          <li>
+            <a href={`/${post.slug}/`}>
+              <BlogPost {...post.data} displayType="preview">
+                {post.body.slice(1, 150) + "..."}
+              </BlogPost>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  }
+</Layout>

@@ -8,7 +8,9 @@ import Layout from '../layouts/Layout.astro';
     {
       WEB_TAGS_LIST.map((tag) => (
         <li>
-          <Tag>{tag}</Tag>
+          <a href={`tag/${tag}`}>
+            <Tag>{tag}</Tag>
+          </a>
         </li>
       ))
     }

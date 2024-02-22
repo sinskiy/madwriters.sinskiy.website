@@ -21,10 +21,10 @@ const sortedPosts = filteredPosts.sort((a, b) =>
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/>
   </head>
-  <body class="background flex flex-col my-8 mx-[25%] gap-16">
+  <body class="dark background flex flex-col my-8 mx-[25%] gap-16">
     <Header />
     <div class="flex gap-16">
-      <BlogTypesNav />
+      <!-- <BlogTypesNav /> -->
       <main class="w-full">
         <section class="flex flex-col gap-4">
           <slot />
