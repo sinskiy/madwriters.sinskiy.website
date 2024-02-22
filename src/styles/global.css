@@ -7,35 +7,35 @@
 
 body {
   font-family: "syne", sans-serif;
-  --background: hsl(87 53 97);
-  --on-background: hsl(110 12 10);
-  --primary: hsl(122 30 32);
+  --background: #f7fbf2;
+  --on-background: #181d17;
+  --primary: #39693b;
   --on-primary: white;
-  --secondary: hsl(114 11 35);
+  --secondary: #526350;
   --on-secondary: white;
-  --surface--highest: hsl(87 14 88);
-  --surface--high: hsl(83 15 90);
-  --surface: hsl(87 22 92);
-  --surface--low: hsl(87 31 94);
-  --on-surface: hsl(110 12 10);
-  --normal: 360 100 100;
-  --inverse: 0 0 0;
+  --surface--highest: #e0e4db;
+  --surface--high: #e6e9e1;
+  --surface: #ebefe6;
+  --surface--low: #f1f5ec;
+  --on-surface: #181d17;
+  --normal: 255, 255, 255;
+  --inverse: 0, 0, 0;
 }
 
 body.dark {
-  --background: hsl(108 14 7);
-  --on-background: hsl(82 14 88);
-  --primary: hsl(117 39 72);
-  --on-primary: hsl(134 84 12);
-  --secondary: hsl(108 19 75);
-  --on-secondary: hsl(120 18 17);
-  --surface--highest: hsl(110 6 20);
-  --surface--high: hsl(108 6 16);
-  --surface: hsl(110 10 12);
-  --surface--low: hsl(110 12 10);
-  --on-surface: hsl(87 14 88);
-  --normal: 0 0 0;
-  --inverse: 360 100 100;
+  --background: #10140f;
+  --on-background: #e0e4db;
+  --primary: #9fd49c;
+  --on-primary: #053911;
+  --secondary: #b9ccb4;
+  --on-secondary: #243424;
+  --surface--highest: #313630;
+  --surface--high: #272b26;
+  --surface: #1c211b;
+  --surface--low: #181d17;
+  --on-surface: #e0e4db;
+  --normal: 0, 0, 0;
+  --inverse: 255, 255, 255;
 }
 
 .background {

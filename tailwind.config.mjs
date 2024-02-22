@@ -6,8 +6,8 @@ export default {
     colors: {
       transparent: "transparent",
       current: "currentColor",
-      normal: "hsl(var(--normal) / <alpha-value>)",
-      inverse: "hsl(var(--inverse) / <alpha-value>)",
+      normal: "rgba(var(--normal), <alpha-value>)",
+      inverse: "rgba(var(--inverse), <alpha-value>)",
       primary: "var(--primary)",
       onPrimary: "var(--on-primary)",
       secondary: "var(--secondary)",
