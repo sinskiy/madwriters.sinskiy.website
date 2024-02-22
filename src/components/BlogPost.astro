@@ -13,7 +13,7 @@ const { title, pubDate, updatedDate, tags, displayType = "full" } = Astro.props;
 			{
 				tags.map((tag: string) => (
 					<li>
-						<Tag>{tag}</Tag>
+						<Tag activatable={false}>{tag}</Tag>
 					</li>
 				))
 			}
