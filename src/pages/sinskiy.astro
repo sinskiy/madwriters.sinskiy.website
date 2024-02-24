@@ -1,16 +1,8 @@
 ---
-import Tag from '../components/Tag.astro';
 import { WEB_TAGS_LIST } from '../consts';
+import Tags from '../components/Tags.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 <Layout>
-  <ul class="flex gap-2">
-    {
-      WEB_TAGS_LIST.map((tag) => (
-        <li>
-          <Tag>{tag}</Tag>
-        </li>
-      ))
-    }
-  </ul>
+  <Tags tags={WEB_TAGS_LIST} />
 </Layout>

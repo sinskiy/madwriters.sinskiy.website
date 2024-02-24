@@ -1,7 +1,7 @@
 ---
-import Tag from '../components/Tag.astro';
 import { WEB_TAGS_LIST } from '../consts';
 import Layout from '../layouts/Layout.astro';
+import Tags from '../components/Tags.astro';
 import { getCollection } from 'astro:content';
 import BlogPost from '../components/BlogPost.astro';
 
@@ -15,17 +15,7 @@ const sortedPosts = filteredPosts.sort((a, b) =>
 );
 ---
 <Layout>
-  <ul class="flex gap-2 flex-wrap">
-    {
-      WEB_TAGS_LIST.map((tag) => (
-        <li>
-          <a href={`tag/${tag}`}>
-            <Tag>{tag}</Tag>
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+  <Tags tags={WEB_TAGS_LIST} />
   <ul id="posts" slot="posts">
     {
       sortedPosts.map((post) => (

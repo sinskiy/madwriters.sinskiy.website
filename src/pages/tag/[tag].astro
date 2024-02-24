@@ -5,6 +5,7 @@ import Layout from "../../layouts/Layout.astro";
 import TagComponent from "../../components/Tag.astro";
 import { getCollection } from "astro:content";
 import BlogPost from "../../components/BlogPost.astro";
+import Tags from "../../components/Tags.astro";
 export const getStaticPaths = (() => {
   const tagPaths = WEB_TAGS_LIST.map((tag) => {
     return {
@@ -17,7 +18,6 @@ export const getStaticPaths = (() => {
 
 const { tag } = Astro.params;
 
-const currentPath = Astro.url.pathname.split("/")[2];
 const posts = await getCollection("blog");
 const filteredPosts = posts.filter((post) => {
   return post.data.tags.includes(tag);
@@ -27,26 +27,7 @@ const sortedPosts = filteredPosts.sort((a, b) =>
 );
 ---
 <Layout>
-  <ul class="flex gap-2 flex-wrap">
-    {
-      WEB_TAGS_LIST.map((tag) => (
-        <li>
-          <a href={`/tag/${tag}`}>
-            {tag === currentPath
-              ?
-              <TagComponent active>
-                {tag}
-              </TagComponent>
-              :
-              <TagComponent>
-                {tag}
-              </TagComponent>
-            }
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+  <Tags tags={WEB_TAGS_LIST} />
   {sortedPosts &&
     <ul class="flex flex-col gap-4" slot="after">
       {
