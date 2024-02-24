@@ -2,7 +2,7 @@
 title: "Second post"
 description: "Lorem ipsum dolor sit amet"
 pubDate: "Jul 22 2022"
-tags: ["web"]
+tags: ["http"]
 author: "sinskiy"
 ---
 

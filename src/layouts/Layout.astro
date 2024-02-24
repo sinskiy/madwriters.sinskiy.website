@@ -39,7 +39,7 @@ const sortedPosts = filteredPosts.sort((a, b) =>
             {
               sortedPosts.map((post) => (
                 <li>
-                  <a href={`/${post.slug}/`}>
+                  <a href={`/${post.data.author}/${post.slug}/`}>
                     <BlogPost {...post.data} displayType="preview">
                       {post.body.slice(1, 150) + "..."}
                     </BlogPost>

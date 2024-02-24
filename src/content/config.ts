@@ -7,8 +7,8 @@ const blog = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    author: z.enum(["sinskiy", "zapiski-sumasshedshey"]).optional(),
-    tags: z.enum(["web", ...WEB_TAGS_LIST]).array(),
+    author: z.enum(["sinskiy", "zapiski-sumasshedshey"]),
+    tags: z.enum(["random-nonsense-to-satisfy-ts", ...WEB_TAGS_LIST]).array(),
     // Transform string to Date object
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
