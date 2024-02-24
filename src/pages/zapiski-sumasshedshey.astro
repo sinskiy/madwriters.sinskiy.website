@@ -1,5 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Posts from '../components/Posts.astro';
+import { getPosts } from "../consts";
+const posts = await getPosts(true, "zapiski-sumasshedshey");
 ---
 <Layout>
+  <Posts {posts} />
 </Layout>

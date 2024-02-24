@@ -1,0 +1,23 @@
+---
+interface Props {
+  posts: CollectionEntry<"blog">[]
+}
+import type { CollectionEntry } from "astro:content";
+import BlogPost from "./BlogPost.astro"
+const { posts } = Astro.props;
+---
+{
+  <ul class="flex flex-col gap-4" slot="after">
+    {
+      posts.map((post) => (
+        <li>
+          <a href={`/${post.data.author}/${post.slug}/`}>
+            <BlogPost {...post.data} displayType="preview">
+              {post.body.slice(1, 150) + "..."}
+            </BlogPost>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+}

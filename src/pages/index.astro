@@ -1,32 +1,13 @@
 ---
-import { WEB_TAGS_LIST } from '../consts';
+import { WEB_TAGS_LIST, getPosts } from '../consts';
 import Layout from '../layouts/Layout.astro';
 import Tags from '../components/Tags.astro';
+import Posts from '../components/Posts.astro';
 import { getCollection } from 'astro:content';
-import BlogPost from '../components/BlogPost.astro';
 
-const author = Astro.url.pathname.split("/")[1];
 const posts = await getCollection("blog");
-const filteredPosts = author ? posts.filter((post) => {
-  return post.data.author === author;
-}) : posts
-const sortedPosts = filteredPosts.sort((a, b) =>
-	a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
-);
 ---
 <Layout>
   <Tags tags={WEB_TAGS_LIST} />
-  <ul id="posts" slot="posts">
-    {
-      sortedPosts.map((post) => (
-        <li>
-          <a href={`/${post.data.author}/${post.slug}/`}>
-            <BlogPost {...post.data} displayType="preview">
-              {post.body.slice(1, 150) + "..."}
-            </BlogPost>
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+  <Posts {posts} />
 </Layout>
