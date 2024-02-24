@@ -4,6 +4,6 @@ import Posts from '../components/Posts.astro';
 import { getPosts } from "../consts";
 const posts = await getPosts(true, "zapiski-sumasshedshey");
 ---
-<Layout>
+<Layout bodyClass="blue">
   <Posts {posts} />
 </Layout>

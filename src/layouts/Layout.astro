@@ -1,17 +1,19 @@
 ---
 import '../styles/global.css';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import Header from "../components/Header.astro";
 import BaseHead from '../components/BaseHead.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import AuthorsNav from '../components/AuthorsNav.astro';
 import AuthorsNavMobile from "../components/AuthorsNavMobile.astro"
+
+const { bodyClass } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/>
   </head>
-  <body class="dark background flex flex-col m-4 xl:mx-[20%] gap-16">
+  <body class:list={[bodyClass, "background flex flex-col m-4 xl:mx-[20%] gap-16"]}>
     <Header />
     <div class="flex flex-col xl:flex-row gap-16">
       <AuthorsNav />
