@@ -4,7 +4,7 @@ export const WEB_TAGS_LIST = ["http", "html", "css", "js", "react", "design"];
 export const links = [
   {
     name: "all",
-    title: "all blogs",
+    title: "all posts",
     href: "/",
     path: "M2.5 16H5.5V10H11.5V16H14.5V7L8.5 2.5L 2.5 7V16ZM0.5 18V6L8.5 0L16.5 6V18H9.5V12H7.5V18H0.5Z",
     viewbox: "0 0 17 18",

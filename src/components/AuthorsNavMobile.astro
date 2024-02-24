@@ -8,14 +8,17 @@ const currentPath = Astro.url.pathname.split("/")[1];
       <a
         title={link.title}
         href={link.href ?? `/${link.name}`}
-        class="w-[33%] flex justify-center pt-3 pb-4 gap-1 flex-col items-center"
+        class:list={[(link.href ? (link.href === "/" ? "" : link.href.replace("/", "")) : link.name) === currentPath && "current", "group"]}
+        class="w-[33%] flex justify-center pt-3 pb-4 gap-1 flex-col text-center items-center"
       >
-        <div class:list={[(link.href ? (link.href === "/" ? "" : link.href.replace("/", "")) : link.name) === currentPath && "bg-secondary text-onSecondary", "rounded-full px-6 py-1"]}>
-          <svg width="24" height={link.height ?? "24"} viewBox={link.viewbox ?? "0 0 16 16"} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <div class="group-[.current]:bg-secondary group-[.current]:text-onSecondary rounded-full px-6 py-1">
+          <svg width="16" height={link.height ?? "16"} viewBox={link.viewbox ?? "0 0 16 16"} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path d={link.path} />
           </svg>
         </div>
-        {link.name.replace("-", " ")}
+        <span class="group-[.current]:font-bold">
+          {link.name.replace("-", " ")}
+        </span>
       </a>
     ))
   }
