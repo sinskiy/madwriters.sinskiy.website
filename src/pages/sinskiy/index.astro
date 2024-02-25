@@ -1,0 +1,12 @@
+---
+import { SINSKIY_TAGS_LIST } from '../../consts';
+import Tags from '../../components/Tags.astro';
+import Layout from '../../layouts/Layout.astro';
+import Posts from '../../components/Posts.astro';
+import { getPosts } from "../../consts";
+const posts = await getPosts(true, "sinskiy");
+---
+<Layout>
+  <Tags tags={SINSKIY_TAGS_LIST} />
+  <Posts {posts} />
+</Layout>

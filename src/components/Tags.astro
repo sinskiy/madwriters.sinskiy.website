@@ -1,13 +1,14 @@
 ---
 import Tag from "./Tag.astro"
 const { tags } = Astro.props;
-const currentPath: string | undefined = Astro.url.pathname.split("/")[2];
+const currentPath: string | undefined = Astro.url.pathname.split("/")[3];
+console.log(currentPath)
 ---
 <ul class="flex gap-2 flex-wrap">
   {
     tags.map((tag: string) => (
       <li>
-        <a href={`/tag/${tag}`}>
+        <a href={`/sinskiy/tag/${tag}/`}>
           {
             currentPath && tag === currentPath
               ?

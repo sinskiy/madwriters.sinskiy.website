@@ -1,5 +1,5 @@
 ---
-import { WEB_TAGS_LIST, getPosts } from '../consts';
+import { SINSKIY_TAGS_LIST } from '../consts';
 import Layout from '../layouts/Layout.astro';
 import Tags from '../components/Tags.astro';
 import Posts from '../components/Posts.astro';
@@ -8,6 +8,6 @@ import { getCollection } from 'astro:content';
 const posts = await getCollection("blog");
 ---
 <Layout>
-  <Tags tags={WEB_TAGS_LIST} />
+  <Tags tags={SINSKIY_TAGS_LIST} />
   <Posts {posts} />
 </Layout>

@@ -1,0 +1,24 @@
+---
+import type { GetStaticPaths } from "astro";
+import { SINSKIY_TAGS_LIST, getPosts } from "../../../consts"
+import Layout from "../../../layouts/Layout.astro";
+import Posts from "../../../components/Posts.astro";
+import Tags from "../../../components/Tags.astro";
+export const getStaticPaths = (() => {
+  const tagPaths = SINSKIY_TAGS_LIST.map((tag) => {
+    return {
+      params: { tag: `${tag}` },
+      props: { name: tag }
+    }
+  })
+  return tagPaths;
+}) satisfies GetStaticPaths;
+
+const { tag } = Astro.params;
+
+const posts = await getPosts(false, tag);
+---
+<Layout>
+  <Tags tags={SINSKIY_TAGS_LIST} />
+  <Posts {posts} />
+</Layout>

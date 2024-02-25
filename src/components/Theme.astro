@@ -33,10 +33,5 @@
 		toggleTheme(target.checked);
 	}
 
-  window.onload = () => {
-    const theme = localStorage.getItem("darkMode") === "true";
-    toggleTheme(theme);
-  }
-
 	themeToggler?.addEventListener("click", onThemeClick)
 </script>

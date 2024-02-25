@@ -13,7 +13,7 @@ const currentPath = Astro.url.pathname.split("/")[1];
         <svg width="16" height={link.height ?? "16"} viewBox={link.viewbox ?? "0 0 16 16"} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path d={link.path} />
         </svg>
-        {link.name.replace("-", " ")}
+        {link.name}
       </a>
     ))
   }

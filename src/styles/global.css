@@ -21,7 +21,8 @@ body {
   --normal: 255, 255, 255;
   --inverse: 0, 0, 0;
 }
-.blue {
+body .blue,
+body.blue {
   --background: #faf9ff;
   --on-background: #1a1b20;
   --primary: #455e91;
@@ -52,7 +53,8 @@ body.dark {
   --normal: 0, 0, 0;
   --inverse: 255, 255, 255;
 }
-body.dark .blue {
+body.dark .blue,
+body.dark.blue {
   --background: #121318;
   --on-background: #e2e2e9;
   --primary: #aec6ff;
