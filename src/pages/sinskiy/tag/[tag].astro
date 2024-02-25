@@ -1,6 +1,7 @@
 ---
 import type { GetStaticPaths } from "astro";
-import { SINSKIY_TAGS_LIST, getPosts } from "../../../consts"
+import { SINSKIY_TAGS_LIST } from "../../../consts"
+import { getPosts } from "../../../utils";
 import Layout from "../../../layouts/Layout.astro";
 import Posts from "../../../components/Posts.astro";
 import Tags from "../../../components/Tags.astro";

@@ -5,7 +5,7 @@
   font-style: normal;
 }
 
-body {
+html {
   font-family: "syne", sans-serif;
   --background: #f7fbf2;
   --on-background: #181d17;
@@ -21,8 +21,7 @@ body {
   --normal: 255, 255, 255;
   --inverse: 0, 0, 0;
 }
-body .blue,
-body.blue {
+.blue {
   --background: #faf9ff;
   --on-background: #1a1b20;
   --primary: #455e91;
@@ -38,7 +37,7 @@ body.blue {
   --inverse: 0, 0, 0;
 }
 
-body.dark {
+.dark {
   --background: #10140f;
   --on-background: #e0e4db;
   --primary: #9fd49c;
@@ -53,8 +52,8 @@ body.dark {
   --normal: 0, 0, 0;
   --inverse: 255, 255, 255;
 }
-body.dark .blue,
-body.dark.blue {
+.dark .blue,
+.dark.blue {
   --background: #121318;
   --on-background: #e2e2e9;
   --primary: #aec6ff;

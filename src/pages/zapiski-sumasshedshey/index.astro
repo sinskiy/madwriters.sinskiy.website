@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Posts from '../../components/Posts.astro';
-import { getPosts } from "../../consts";
+import { getPosts } from "../../utils";
 const posts = await getPosts(true, "zapiski-sumasshedshey");
 ---
 <Layout bodyClass="blue">
