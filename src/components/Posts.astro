@@ -7,7 +7,7 @@ import BlogPost from "./BlogPost.astro"
 const { posts } = Astro.props;
 ---
 {
-  <ul class="flex flex-col gap-4" slot="after">
+  <ul class="flex flex-col gap-2" slot="after">
     {
       posts.map((post) => (
         <li>
