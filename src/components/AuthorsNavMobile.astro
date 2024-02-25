@@ -2,20 +2,20 @@
 import { links } from "../consts"
 const currentPath = Astro.url.pathname.split("/")[1];
 ---
-<nav class="flex items-center md:hidden min-w-full text-sm bg-surface text-onSurface fixed bottom-0 left-0 z-10 capitalize">
+<nav class="flex md:hidden min-w-full text-sm bg-surface text-onSurface fixed bottom-0 left-0 z-10 capitalize">
   {
     links.map((link) => (
       <a
         title={link.title}
         href={link.href ?? `/${link.name}`}
-        class:list={[(link.href ? (link.href === "/" ? "" : link.href.replace("/", "")) : link.name) === currentPath && "current", "group", "w-[33%] flex justify-center pt-3 pb-4 gap-1 flex-col text-center items-center"]}
+        class:list={[(link.href ? (link.href === "/" ? "" : link.href.replace("/", "")) : link.name) === currentPath && "current", "group", "w-[33%] flex pt-3 pb-4 gap-1 flex-col text-center items-center"]}
       >
-        <div class="group-[.current]:bg-secondary group-[.current]:text-onSecondary rounded-full px-6 py-1">
-          <svg width="16" height={link.height ?? "16"} viewBox={link.viewbox ?? "0 0 17 16"} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <div class="group-[.current]:bg-secondary group-[.current]:text-onSecondary rounded-full px-6 py-2">
+          <svg width="16" height="16" viewBox={link.viewbox ?? "0 0 17 16"} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path d={link.path} />
           </svg>
         </div>
-        <span class="group-[.current]:font-bold min-h-full justify-self-end">
+        <span class="group-[.current]:font-bold">
           {link.name}
         </span>
       </a>
