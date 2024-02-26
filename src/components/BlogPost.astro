@@ -8,7 +8,7 @@ type Props = CollectionEntry<'blog'>['data'] & {displayType?: "full" | "preview"
 const { title, pubDate, updatedDate, tags, displayType = "full" } = Astro.props;
 ---
 {
-	displayType === "full" &&
+	displayType === "full" && tags.length !== 0 &&
 		<ul class="flex gap-2 flex-wrap">
 			{
 				tags.map((tag: string) => (

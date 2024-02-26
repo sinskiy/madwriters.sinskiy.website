@@ -7,22 +7,18 @@ const filterPosts = (
   posts: CollectionEntry<"blog">[]
 ) => {
   if (isAuthor) {
-    const author = authorOrTag;
-    const filteredPosts = posts.filter((post: any) => {
-      return post.data.author === author;
+    return posts.filter((post: any) => {
+      return post.data.author === authorOrTag;
     });
-    return filteredPosts;
   } else {
-    const tag = authorOrTag;
-    const filteredPosts = posts.filter((post: any) => {
-      return post.data.tags.includes(tag);
+    return posts.filter((post: any) => {
+      return post.data.tags.includes(authorOrTag);
     });
-    return filteredPosts;
   }
 };
-const sortPosts = (posts: CollectionEntry<"blog">[]) => {
+export const sortPosts = (posts: CollectionEntry<"blog">[]) => {
   return posts.sort(
-    (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
   );
 };
 export const getPosts = async (isAuthor: boolean, authorOrTag: string) => {

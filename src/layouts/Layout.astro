@@ -13,9 +13,9 @@ const { bodyClass } = Astro.props;
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/>
   </head>
-  <body class:list={[bodyClass, "background flex flex-col m-4 xl:mx-[20%] gap-16"]}>
+  <body class:list={[bodyClass, "background m-4 xl:mx-[20%]"]}>
     <Header />
-    <div class="flex gap-16">
+    <div class="flex gap-16 mt-16">
       <AuthorsNav />
       <AuthorsNavMobile />
       <main class="w-full">

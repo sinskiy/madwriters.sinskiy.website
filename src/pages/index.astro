@@ -4,8 +4,9 @@ import Layout from '../layouts/Layout.astro';
 import Tags from '../components/Tags.astro';
 import Posts from '../components/Posts.astro';
 import { getCollection } from 'astro:content';
+import { sortPosts } from '../utils';
 
-const posts = await getCollection("blog");
+const posts = sortPosts(await getCollection("blog"));
 ---
 <Layout>
   <Tags tags={SINSKIY_TAGS_LIST} />
