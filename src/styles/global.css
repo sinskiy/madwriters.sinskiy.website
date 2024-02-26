@@ -21,6 +21,21 @@ html {
   --normal: 255, 255, 255;
   --inverse: 0, 0, 0;
 }
+.green {
+  --background: #f7fbf2;
+  --on-background: #181d17;
+  --primary: #39693b;
+  --on-primary: white;
+  --secondary: #526350;
+  --on-secondary: white;
+  --surface--highest: #e0e4db;
+  --surface--high: #e6e9e1;
+  --surface: #ebefe6;
+  --surface--low: #f1f5ec;
+  --on-surface: #181d17;
+  --normal: 255, 255, 255;
+  --inverse: 0, 0, 0;
+}
 .blue {
   --background: #faf9ff;
   --on-background: #1a1b20;
@@ -38,6 +53,22 @@ html {
 }
 
 .dark {
+  --background: #151515;
+  --on-background: #e6e6e6;
+  --primary: #d7d7d7;
+  --on-primary: #393939;
+  --secondary: #cdcdcd;
+  --on-secondary: #353535;
+  --surface--highest: #373737;
+  --surface--high: #2c2c2c;
+  --surface: #222222;
+  --surface--low: #1d1d1d;
+  --on-surface: #e6e6e6;
+  --normal: 0, 0, 0;
+  --inverse: 255, 255, 255;
+}
+.dark .green,
+.dark.green {
   --background: #10140f;
   --on-background: #e0e4db;
   --primary: #9fd49c;
