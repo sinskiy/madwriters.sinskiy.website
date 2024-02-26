@@ -31,3 +31,21 @@ export const getPosts = async (isAuthor: boolean, authorOrTag: string) => {
   const sortedPosts = sortPosts(filteredPosts);
   return sortedPosts;
 };
+export const countTags = async (tags: string[]) => {
+  const posts = await getCollection("blog");
+  const postTags = posts
+    .map((post) => {
+      return post.data.tags;
+    })
+    .flat()
+    .filter((tag) => tags.includes(tag));
+
+  const countedTags = postTags.reduce((acc: { [i: string]: number }, tag) => {
+    const currCount = acc[tag] || 0;
+    return {
+      ...acc,
+      [tag]: currCount + 1,
+    };
+  }, {});
+  return countedTags;
+};
