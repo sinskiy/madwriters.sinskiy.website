@@ -7,17 +7,20 @@
 
 html {
   font-family: "syne", sans-serif;
-  --background: #f7fbf2;
-  --on-background: #181d17;
-  --primary: #39693b;
+}
+html,
+.default {
+  --background: #fcfcfc;
+  --on-background: #1d1d1d;
+  --primary: #6b6b6b;
   --on-primary: white;
-  --secondary: #526350;
+  --secondary: #646464;
   --on-secondary: white;
-  --surface--highest: #e0e4db;
-  --surface--high: #e6e9e1;
-  --surface: #ebefe6;
-  --surface--low: #f1f5ec;
-  --on-surface: #181d17;
+  --surface--highest: #e6e6e6;
+  --surface--high: #ebebeb;
+  --surface: #f1f1f1;
+  --surface--low: #f7f7f7;
+  --on-surface: #1d1d1d;
   --normal: 255, 255, 255;
   --inverse: 0, 0, 0;
 }
@@ -52,7 +55,9 @@ html {
   --inverse: 0, 0, 0;
 }
 
-.dark {
+.dark,
+.dark.default,
+.dark .default {
   --background: #151515;
   --on-background: #e6e6e6;
   --primary: #d7d7d7;

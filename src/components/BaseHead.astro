@@ -11,8 +11,7 @@ const { title, description, image = '/thumbnail.svg' } = Astro.props;
 ---
 <!-- Theme -->
 <script is:inline>
-	const theme = localStorage.getItem("darkMode") === "true" ? "dark" : "";
-	document.querySelector("html").classList.add(theme);
+	localStorage.getItem("darkMode") === "true" && document.querySelector("html").classList.add(theme);
 </script>
 <!-- Global Metadata -->
 <meta charset="utf-8" />
