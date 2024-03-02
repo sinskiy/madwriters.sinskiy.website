@@ -3,15 +3,15 @@ import { links } from "../consts";
 const currentPath = Astro.url.pathname.split("/")[1];
 ---
 <!-- link.name === "sinskiy" && "green", link.name === "записки сумасшедшей" && "blue", link.name === "all" && "default" -->
-<nav class="hidden md:flex flex-col gap-4 text-xl items-center justify-normal mx-auto max-w-fit flex-wrap">
+<nav class="sticky top-[calc(4rem+1rem+4rem)] h-fit hidden md:flex flex-col gap-4">
   {
     links.map((link) => (
       <a
         title={link.title}
         href={link.href ?? `/${link.name}`}
-        class:list={[(link.href ? (link.href === "/" ? "" : link.href.replace("/", "")) : link.name) === currentPath ? "bg-secondary !text-onSecondary" : "hover:bg-surface", "transition-all whitespace-nowrap gap-2 text-center text-primary capitalize flex items-center justify-center w-[calc(100%+2rem)] rounded-full py-3 text-base xl:text-md"]}
+        class:list={[(link.href ? (link.href === "/" ? "" : link.href.replace("/", "")) : link.name) === currentPath ? "bg-secondary !text-onSecondary" : "hover:bg-surface", "transition-all whitespace-nowrap gap-2 text-center text-primary capitalize flex items-center justify-center w-[calc(100%+2rem)] rounded-full py-3 text-base"]}
       >
-        <svg width="16" height="16" viewBox={link.viewbox ?? "0 0 16 16"} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <svg width="16" height="16" viewBox={link.viewbox ?? "0 0 17 16"} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path d={link.path} />
         </svg>
         {link.name}
