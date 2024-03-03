@@ -1,0 +1,30 @@
+---
+const paths = Astro.url.pathname.split("/");
+let walked = "/";
+const formattedPaths = paths.map((path, index) => {
+  if (index === 0 && path === "") {
+    return ["home", walked]
+  }
+  else if (path === "") {
+    return;
+  }
+  else {
+    walked += path + "/";
+    path = walked.length > 22 ? "..." : path
+    return [path, walked]
+  }
+}).filter((path) => path);
+---
+<ul class="opacity-70 text-sm whitespace-nowrap">
+  <li class="flex gap-1 group">
+    {formattedPaths.length > 1 &&
+      formattedPaths.map((URLPartial) => {
+        return URLPartial &&
+          <a class="underline" href={URLPartial[1]}>
+            {URLPartial[0]}
+          </a>
+          <span class="last-of-type:hidden">/</span>
+      })
+    }
+  </li>
+</ul>

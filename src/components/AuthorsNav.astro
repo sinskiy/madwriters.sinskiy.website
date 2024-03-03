@@ -1,9 +1,10 @@
 ---
 import { links } from "../consts";
+import Breadcrumbs from "./Breadcrumbs.astro";
 const currentPath = Astro.url.pathname.split("/")[1];
 ---
 <!-- link.name === "sinskiy" && "green", link.name === "записки сумасшедшей" && "blue", link.name === "all" && "default" -->
-<nav class="sticky top-[calc(4rem+1rem+4rem)] h-fit hidden md:flex flex-col gap-4">
+<nav class="sticky top-[calc(4rem+1rem+4rem)] h-fit w-fit hidden md:flex flex-col gap-4 items-center">
   {
     links.map((link) => (
       <a
@@ -18,4 +19,5 @@ const currentPath = Astro.url.pathname.split("/")[1];
       </a>
     ))
   }
+  <Breadcrumbs />
 </nav>
