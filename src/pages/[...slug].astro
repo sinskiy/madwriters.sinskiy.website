@@ -15,7 +15,7 @@ type Props = CollectionEntry<'blog'>;
 const post = Astro.props;
 const { Content } = await post.render();
 ---
-<Layout bodyClass={post.data.author === "zapiski-sumasshedshey" ? "blue" : "green"}>
+<Layout bodyClass={post.data.author === "zapiski-sumasshedshey" ? "blue background" : "green"}>
 	<BlogPost {...post.data}>
 		<Content />
 	</BlogPost>
