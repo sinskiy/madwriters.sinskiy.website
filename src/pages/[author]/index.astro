@@ -7,7 +7,7 @@ import { getPosts } from "../../utils";
 import { type GetStaticPaths } from 'astro';
 export const getStaticPaths = (() => {
   return AUTHORS.map((author) => ({
-      params: { author: `/${author.href ?? author.name}` },
+      params: { author: author.href ?? author.name },
       props: { author }
   }))
 }) satisfies GetStaticPaths;

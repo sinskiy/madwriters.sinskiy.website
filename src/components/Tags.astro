@@ -4,7 +4,6 @@ import { countTags } from "../utils"
 const { tags } = Astro.props;
 const countedTags = await countTags(tags);
 const currentPath: string | undefined = Astro.url.pathname.split("/")[2];
-console.log(currentPath)
 ---
 {
   countedTags.length !==  0 &&
