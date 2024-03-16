@@ -1,0 +1,25 @@
+---
+import { AUTHORS, type Author } from '../../consts';
+import Tags from '../../components/Tags.astro';
+import Layout from '../../layouts/Layout.astro';
+import Posts from '../../components/Posts.astro';
+import { getPosts } from "../../utils";
+import { type GetStaticPaths } from 'astro';
+export const getStaticPaths = (() => {
+  return AUTHORS.map((author) => ({
+      params: { author: `/${author.href ?? author.name}` },
+      props: { author }
+  }))
+}) satisfies GetStaticPaths;
+
+interface Props {
+  author: Author
+}
+
+const { author } = Astro.props;
+const posts = await getPosts(true, author.href ?? author.name);
+---
+<Layout bodyClass={author.bodyClass}>
+  <Tags tags={author.tags} />
+  <Posts {posts} />
+</Layout>

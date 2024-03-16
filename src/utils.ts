@@ -43,5 +43,5 @@ export const countTags = async (tags: string[]) => {
       [tag]: currCount + 1,
     };
   }, {});
-  return countedTags;
+  return Object.entries(countedTags);
 };

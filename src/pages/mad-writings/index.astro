@@ -1,9 +1,0 @@
----
-import Layout from '../../layouts/Layout.astro';
-import Posts from '../../components/Posts.astro';
-import { getPosts } from "../../utils";
-const posts = await getPosts(true, "mad-writings");
----
-<Layout bodyClass="blue background">
-  <Posts {posts} />
-</Layout>
