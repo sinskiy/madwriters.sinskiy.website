@@ -1,8 +1,6 @@
 export const SITE_TITLE = "Записки сумасшедшей & синского";
 export const SITE_DESCRIPTION = "Название говорит само за себя";
 
-export const TAGS_LIST = ["bible", "equality"] as const;
-
 export interface Link {
   name: string;
   title?: string;
@@ -13,7 +11,7 @@ export interface Link {
 }
 export interface Author extends Link {
   name: string;
-  tags: (typeof TAGS_LIST)[number][];
+  tags: string[];
   title?: string;
   href?: string;
   bodyClass?: string;
@@ -37,7 +35,9 @@ export const AUTHORS: Author[] = [
     viewBox: "0 0 17 16",
   },
 ];
-export const links: Link[] = [
+export const AUTHORS_LIST = AUTHORS.map((author) => author.href ?? author.name);
+export const TAGS_LIST = AUTHORS.map((author) => author.tags).flat();
+export const LINKS: Link[] = [
   {
     name: "all",
     title: "all posts",

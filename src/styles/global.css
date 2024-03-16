@@ -45,7 +45,7 @@ html,
 }
 .blue {
   --background: #faf9ff;
-  --on-background: #1a1b20;
+  --on-background: #e2e2e9;
   --primary: white;
   --on-primary: var(--background);
   --secondary: #575e71;
