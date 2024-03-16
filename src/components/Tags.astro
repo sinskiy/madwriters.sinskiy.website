@@ -15,7 +15,7 @@ const currentPath: string | undefined = Astro.url.pathname.split("/")[2];
             {
               <Tag active={currentPath && tag[0] === currentPath}>
                 {tag[0]}
-                <span class="opacity-50"> {tag[1]}</span>
+                <span class="opacity-50">&nbsp;{tag[1]}</span>
               </Tag>
             }
           </a>

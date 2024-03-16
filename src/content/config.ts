@@ -1,5 +1,5 @@
 import { defineCollection, z } from "astro:content";
-import { AUTHORS, SINSKIY_TAGS_LIST } from "../consts";
+import { AUTHORS, TAGS_LIST } from "../consts";
 
 const blog = defineCollection({
   type: "content",
@@ -8,7 +8,7 @@ const blog = defineCollection({
     title: z.string(),
     description: z.string(),
     author: z.enum([...AUTHORS]),
-    tags: z.enum([...SINSKIY_TAGS_LIST]).array(),
+    tags: z.enum([...TAGS_LIST]).array(),
     // Transform string to Date object
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),

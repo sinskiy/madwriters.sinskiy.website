@@ -1,14 +1,7 @@
 export const SITE_TITLE = "Записки сумасшедшей & синского";
 export const SITE_DESCRIPTION = "Название говорит само за себя";
 export const AUTHORS = ["sinskiy", "zapiski-sumasshedshey"] as const;
-export const SINSKIY_TAGS_LIST = [
-  "http",
-  "html",
-  "css",
-  "js",
-  "react",
-  "design",
-] as const;
+export const TAGS_LIST = ["Библия", "равноправие"] as const;
 export const links = [
   {
     name: "all",

@@ -1,5 +1,5 @@
 ---
-import { SINSKIY_TAGS_LIST } from '../consts';
+import { TAGS_LIST } from '../consts';
 import Layout from '../layouts/Layout.astro';
 import Tags from '../components/Tags.astro';
 import Posts from '../components/Posts.astro';
@@ -9,6 +9,6 @@ import { sortPosts } from '../utils';
 const posts = sortPosts(await getCollection("blog"));
 ---
 <Layout>
-  <Tags tags={SINSKIY_TAGS_LIST} />
+  <Tags tags={TAGS_LIST} />
   <Posts {posts} />
 </Layout>
