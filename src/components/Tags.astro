@@ -5,19 +5,22 @@ const { tags } = Astro.props;
 const countedTags = await countTags(tags);
 const currentPath: string | undefined = Astro.url.pathname.split("/")[2];
 ---
-<ul class="flex gap-2 flex-wrap">
-  {
-    Object.entries(countedTags).map((tag) => (
-      <li>
-        <a href={`/sinskiy/${tag[0]}/`}>
-          {
-            <Tag active={currentPath && tag[0] === currentPath}>
-              {tag[0]}
-              <span class="opacity-50"> {tag[1]}</span>
-            </Tag>
-          }
-        </a>
-      </li>
-    ))
-  }
-</ul>
+{
+  Object.entries(countedTags).length !==  0 &&
+  <ul class="flex gap-2 flex-wrap">
+    {
+      Object.entries(countedTags).map((tag) => (
+        <li>
+          <a href={`/sinskiy/${tag[0]}/`}>
+            {
+              <Tag active={currentPath && tag[0] === currentPath}>
+                {tag[0]}
+                <span class="opacity-50"> {tag[1]}</span>
+              </Tag>
+            }
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+}
