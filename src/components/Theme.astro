@@ -13,10 +13,12 @@
 <script>
 	import { lightD, darkD } from "../consts";
 
+  const themeToggler = document.querySelector("#theme-toggler") as HTMLInputElement;
 	const themeIconPath = document.querySelector("#theme-icon>path");
 
 	function toggleTheme(darkMode: boolean) {
 		localStorage.setItem("darkMode", darkMode.toString());
+		themeToggler.checked = darkMode;
 		if (darkMode) {
 			document.querySelector("html")?.classList.add("dark");
 			themeIconPath?.setAttribute("d", lightD);
@@ -25,7 +27,6 @@
 			themeIconPath?.setAttribute("d", darkD);
 		}
 	}
-  const themeToggler = document.querySelector("#theme-toggler");
 
 	function onThemeClick(event: Event) {
 		const target = event.target as HTMLInputElement;
