@@ -1,21 +1,25 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content';
-import BlogPost from '../components/BlogPost.astro';
-import Layout from '../layouts/Layout.astro';
+import BlogPost from '../../components/BlogPost.astro';
+import Layout from '../../layouts/Layout.astro';
+import { AUTHORS } from '../../consts';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
 	return posts.map((post) => ({
-		params: { slug: `/${post.data.author}/${post.slug}` },
+		params: { author: post.data.author, post: post.slug },
 		props: post,
 	}));
 }
 type Props = CollectionEntry<'blog'>;
 
 const post = Astro.props;
+const authorObject = AUTHORS.find((author) => {
+	return author.href == post.data.author;
+})
 const { Content } = await post.render();
 ---
-<Layout bodyClass={post.data.author === "mad-writings" ? "blue background" : "green"}>
+<Layout bodyClass={authorObject?.bodyClass}>
 	<BlogPost {...post.data}>
 		<Content />
 	</BlogPost>
