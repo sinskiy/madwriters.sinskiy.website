@@ -9,7 +9,7 @@ const currentPath = Astro.url.pathname.split("/")[1];
       <a
         title={link.title ?? link.name}
         href={`/${link.href ?? link.name}`}
-        class:list={[(link.href ?? link.name) == currentPath ? "bg-secondary !text-onSecondary" : "hover:bg-surface", "transition-all whitespace-nowrap gap-2 text-center text-primary capitalize flex items-center justify-center w-[calc(100%+2rem)] rounded-full py-3 text-base"]}
+        class:list={[(link.href ?? link.name) == currentPath ? "bg-secondary !text-onSecondary" : "hover:bg-surface hover:text-onSurface", "transition-all whitespace-nowrap gap-2 text-center text-primary capitalize flex items-center justify-center w-[calc(100%+2rem)] rounded-full py-3 text-base"]}
       >
         <svg width="16" height="16" viewBox={link.viewBox ?? "0 0 17 16"} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path d={link.path} />
@@ -20,8 +20,3 @@ const currentPath = Astro.url.pathname.split("/")[1];
   }
   <Breadcrumbs />
 </nav>
-<style is:global>
-  .blue nav > a:hover {
-    @apply !bg-secondary
-  }
-</style>
