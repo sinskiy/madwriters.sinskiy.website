@@ -1,12 +1,12 @@
 @font-face {
-  font-family: "syne";
-  src: url("/fonts/syne.woff2") format("woff2");
-  font-weight: normal;
+  font-family: "el messiri";
+  src: url("/fonts/el-messiri.woff2") format("woff2");
+  font-weight: 400 700;
   font-style: normal;
 }
 
 html {
-  font-family: "syne", sans-serif;
+  font-family: "el messiri", serif;
 }
 body {
   background-color: var(--background);

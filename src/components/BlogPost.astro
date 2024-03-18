@@ -21,7 +21,7 @@ const { title, author, pubDate, updatedDate, tags, displayType = "full" } = Astr
 }
 <article class:list={[displayType === "preview" ? "mb-2 hover:bg-surface-high" : "mb-24", "bg-surface transition-colors rounded-2xl px-8 py-4 md:px-16 md:py-8 w-full relative"]}>
 	<header class="mb-2">
-		<h2 class="text-inverse text-2xl md:text-4xl">{title}</h2>
+		<h2 class="text-inverse text-2xl md:text-4xl font-bold">{title}</h2>
 		<FormattedDate date={pubDate} />
 		{
 			updatedDate && (
