@@ -2,18 +2,22 @@
 import type { CollectionEntry } from 'astro:content';
 import FormattedDate from './FormattedDate.astro';
 import Tag from './Tag.astro';
+import { TAG_OBJECTS_LIST } from '../consts';
 
 type Props = CollectionEntry<'blog'>['data'] & {displayType?: "full" | "preview" };
 
 const { title, author, pubDate, updatedDate, tags, displayType = "full" } = Astro.props;
+const tagsId = tags.map((tag) => TAG_OBJECTS_LIST.find((tagObject) => tagObject.name === tag)?.id)
 ---
 {
 	displayType === "full" && tags.length !== 0 &&
 		<ul class="flex gap-2 flex-wrap">
 			{
-				tags.map((tag: string) => (
+				tags.map((tag, i) => (
 					<li>
-						<Tag>{tag}</Tag>
+						<a href={`/mad-writings/${tagsId[i]}/`}>
+							<Tag>{tag}</Tag>
+						</a>
 					</li>
 				))
 			}
