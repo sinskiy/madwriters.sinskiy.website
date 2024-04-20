@@ -20,6 +20,6 @@ const { author } = Astro.props;
 const posts = await getPosts(true, author.href ?? author.name);
 ---
 <Layout bodyClass={author.bodyClass}>
-  <Tags tags={author.tags} />
+  <Tags tags={author.tags.map((tag) => tag.name)} />
   <Posts {posts} />
 </Layout>

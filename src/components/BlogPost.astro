@@ -13,7 +13,7 @@ const { title, author, pubDate, updatedDate, tags, displayType = "full" } = Astr
 			{
 				tags.map((tag: string) => (
 					<li>
-						<Tag activatable={false}>{tag}</Tag>
+						<Tag>{tag}</Tag>
 					</li>
 				))
 			}

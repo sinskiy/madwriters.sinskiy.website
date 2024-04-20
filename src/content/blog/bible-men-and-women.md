@@ -2,7 +2,7 @@
 title: "Библия, мужчины и женщины"
 description: "Сумасшедшая поясняет за Библию"
 pubDate: "Mar 16 2024"
-tags: ["bible", "equality"]
+tags: ["Библия", "равенство"]
 author: "mad-writings"
 ---
 

@@ -1,5 +1,6 @@
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+import { TAG_OBJECTS_LIST, type Tag } from "./consts";
 
 const filterPosts = (
   isAuthor: boolean,
@@ -37,11 +38,21 @@ export const countTags = async (tags: string[]) => {
     .filter((tag) => tags.includes(tag));
 
   const countedTags = postTags.reduce((acc: { [i: string]: number }, tag) => {
-    const currCount = acc[tag] || 0;
+    const realTag = TAG_OBJECTS_LIST.find(
+      (tagObject) => tagObject.name === tag
+    )?.id;
+    if (!realTag) return { ...acc };
+
+    const currCount = acc[realTag] || 0;
     return {
       ...acc,
-      [tag]: currCount + 1,
+      [realTag]: currCount + 1,
     };
   }, {});
-  return Object.entries(countedTags);
+
+  const tagsWithOriginalNames = Object.entries(countedTags).map((tag, i) => {
+    return [...tag, tags[i]];
+  });
+
+  return tagsWithOriginalNames;
 };
