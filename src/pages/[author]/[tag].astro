@@ -22,9 +22,9 @@ interface Props {
 }
 const { authorObject, tagName } = Astro.props;
 
-const posts = await getPosts(false, tagName);
+const posts = await getPostsByTag(tagName);
 ---
 <Layout bodyClass={authorObject.bodyClass}>
-  <Tags tags={CATEGORIES} />
+  <Tags tags={CATEGORIES} active={tag} />
   <Posts {posts} />
 </Layout>

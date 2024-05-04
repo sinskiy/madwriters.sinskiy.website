@@ -1,9 +1,8 @@
 ---
 import Tag from "./Tag.astro"
 import { countTags } from "../utils"
-const { tags } = Astro.props;
+const { tags, active } = Astro.props;
 const countedTags = await countTags(tags);
-const currentPath: string | undefined = Astro.url.pathname.split("/")[2];
 ---
 {
   countedTags.length !==  0 &&
@@ -11,11 +10,11 @@ const currentPath: string | undefined = Astro.url.pathname.split("/")[2];
     {
       countedTags.map((tag) => (
         <li>
-          <a href={`/mad-writings/${tag[0]}/`}>
+          <a href={`/mad-writings/${tag.id}/`}>
             {
-              <Tag active={currentPath && tag[0] === currentPath}>
-                {tag[2]}
-                <span class="opacity-50">&nbsp;{tag[1]}</span>
+              <Tag active={active === tag.id}>
+                {tag.name}
+                <span class="opacity-50">&nbsp;{tag.count}</span>
               </Tag>
             }
           </a>

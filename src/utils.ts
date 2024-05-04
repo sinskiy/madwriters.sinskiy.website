@@ -28,35 +28,45 @@ export const sortPosts = (posts: CollectionEntry<"blog">[]) => {
   });
 };
 
-export const getPosts = async (isAuthor: boolean, authorOrTag: string) => {
+export const getAllPosts = async () => {
   const posts = await getCollection("blog");
-  const filteredPosts = filterPosts(isAuthor, authorOrTag, posts);
-  const sortedPosts = sortPosts(filteredPosts);
+  const sortedPosts = sortPosts(posts);
   return sortedPosts;
 };
 
+export const getPostsByAuthor = async (author: string) => {
+  const allPosts = await getAllPosts();
+  return allPosts.filter((post) => {
+    return post.data.author === author;
+  });
+};
+
+export const getPostsByTag = async (tag: string) => {
+  const allPosts = await getAllPosts();
+  return allPosts.filter((post) => {
+    if (!post.data.categories) return false;
+    return post.data.categories.includes(tag);
+  });
+};
+
 export const countTags = async (tags: string[]) => {
-  const posts = await getCollection("blog");
-  const postTags = posts
-    .map((post) => {
-      return post.data.categories;
-    })
-    .flat()
-    .filter((tag) => (tag ? tags.includes(tag) : false));
+  const countedTags = tags.reduce((acc: { [i: string]: number }, tag) => {
+    const tagId = TAGS.find((tagObject) => tagObject.name === tag)?.id;
+    if (!tagId) return { ...acc };
 
-  const countedTags = postTags.reduce((acc: { [i: string]: number }, tag) => {
-    const realTag = TAGS.find((tagObject) => tagObject.name === tag)?.id;
-    if (!realTag) return { ...acc };
-
-    const currCount = acc[realTag] || 0;
+    const currCount = acc[tagId] ?? 0;
     return {
       ...acc,
-      [realTag]: currCount + 1,
+      [tagId]: currCount + 1,
     };
   }, {});
 
   const tagsWithOriginalNames = Object.entries(countedTags).map((tag, i) => {
-    return [...tag, tags[i]];
+    return {
+      id: tag[0],
+      count: tag[1],
+      name: tags[i],
+    };
   });
 
   return tagsWithOriginalNames;
