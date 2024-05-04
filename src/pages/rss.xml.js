@@ -18,6 +18,5 @@ export async function GET(context) {
       }),
       ...post.data,
     })),
-    stylesheet: "/pretty-feed-v3.xsl",
   });
 }
