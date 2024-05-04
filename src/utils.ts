@@ -2,22 +2,6 @@ import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { TAGS } from "./consts";
 
-const filterPosts = (
-  isAuthor: boolean,
-  authorOrTag: string,
-  posts: CollectionEntry<"blog">[]
-) => {
-  if (isAuthor) {
-    return posts.filter((post: any) => {
-      return post.data.author === authorOrTag;
-    });
-  } else {
-    return posts.filter((post: any) => {
-      return post.data.categories.includes(authorOrTag);
-    });
-  }
-};
-
 export const sortPosts = (posts: CollectionEntry<"blog">[]) => {
   return posts.sort((a, b) => {
     if (!a.data.pubDate || !b.data.pubDate) {
