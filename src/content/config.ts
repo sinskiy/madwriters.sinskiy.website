@@ -1,5 +1,4 @@
-import { defineCollection, z } from "astro:content";
-import { AUTHORS_LIST, TAGS_LIST } from "../consts";
+import { defineCollection } from "astro:content";
 import { rssSchema } from "@astrojs/rss";
 
 const blog = defineCollection({
