@@ -36,6 +36,7 @@ const tagsId = categories && categories.map((tag) => TAGS.find((tagObject) => ta
 		}
 	</header>
 	<div class="prose dark:prose-invert break-words prose-sm sm:prose-base prose-headings:my-6 min-w-full">
+		{displayType === "preview" && description}
 		<slot />
 	</div>
 </article>

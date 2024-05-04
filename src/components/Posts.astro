@@ -12,9 +12,7 @@ const { posts } = Astro.props;
       posts.map((post) => (
         <li>
           <a href={`/${post.data.author}/${post.slug}/`}>
-            <BlogPost {...post.data} displayType="preview">
-              {post.body.slice(1, 150) + "..."}
-            </BlogPost>
+            <BlogPost {...post.data} displayType="preview" />
           </a>
         </li>
       ))
