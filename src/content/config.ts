@@ -3,7 +3,6 @@ import { rssSchema } from "@astrojs/rss";
 
 const blog = defineCollection({
   type: "content",
-  // Type-check frontmatter using a schema
   schema: rssSchema,
 });
 
