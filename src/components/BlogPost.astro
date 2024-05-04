@@ -2,18 +2,18 @@
 import type { CollectionEntry } from 'astro:content';
 import FormattedDate from './FormattedDate.astro';
 import Tag from './Tag.astro';
-import { TAG_OBJECTS_LIST } from '../consts';
+import { TAGS } from '../consts';
 
 type Props = CollectionEntry<'blog'>['data'] & {displayType?: "full" | "preview" };
 
-const { title, author, pubDate, updatedDate, tags, displayType = "full" } = Astro.props;
-const tagsId = tags.map((tag) => TAG_OBJECTS_LIST.find((tagObject) => tagObject.name === tag)?.id)
+const { title, author, pubDate, description, customData, categories, displayType = "full" } = Astro.props;
+const tagsId = categories && categories.map((tag) => TAGS.find((tagObject) => tagObject.name === tag)?.id)
 ---
 {
-	displayType === "full" && tags.length !== 0 &&
+	displayType === "full" && categories &&
 		<ul class="flex gap-2 flex-wrap">
-			{
-				tags.map((tag, i) => (
+			{tagsId &&
+				categories.map((tag, i) => (
 					<li>
 						<a href={`/mad-writings/${tagsId[i]}/`}>
 							<Tag>{tag}</Tag>
@@ -26,11 +26,11 @@ const tagsId = tags.map((tag) => TAG_OBJECTS_LIST.find((tagObject) => tagObject.
 <article class:list={[displayType === "preview" ? "mb-2 hover:bg-surface-high" : "mb-24", "bg-surface transition-colors rounded-2xl px-8 py-4 md:px-16 md:py-8 w-full relative"]}>
 	<header class="mb-2">
 		<h2 class="text-inverse text-2xl md:text-4xl font-bold">{title}</h2>
-		<FormattedDate date={pubDate} />
+		{pubDate && <FormattedDate date={pubDate} />}
 		{
-			updatedDate && (
+			customData && (
 				<div>
-					Last updated on <FormattedDate date={updatedDate} />
+					Last updated on <FormattedDate date={new Date(customData)} />
 				</div>
 			)
 		}

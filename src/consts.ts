@@ -37,8 +37,8 @@ export const AUTHORS: Author[] = [
   },
 ];
 export const AUTHORS_LIST = AUTHORS.map((author) => author.href ?? author.name);
-export const TAG_OBJECTS_LIST = AUTHORS.map((author) => author.tags).flat();
-export const TAGS_LIST = AUTHORS.map((author) =>
+export const TAGS = AUTHORS.map((author) => author.tags).flat();
+export const CATEGORIES = AUTHORS.map((author) =>
   author.tags.map((tag) => tag.name)
 ).flat();
 export const LINKS: Link[] = [

@@ -1,5 +1,5 @@
 ---
-import { AUTHORS, type Author, TAGS_LIST, type Tag } from "../../consts"
+import { AUTHORS, type Author, CATEGORIES, type Tag } from "../../consts"
 import { getPosts } from "../../utils";
 import Layout from "../../layouts/Layout.astro";
 import Posts from "../../components/Posts.astro";
@@ -25,6 +25,6 @@ const { authorObject, tagName } = Astro.props;
 const posts = await getPosts(false, tagName);
 ---
 <Layout bodyClass={authorObject.bodyClass}>
-  <Tags tags={TAGS_LIST} />
+  <Tags tags={CATEGORIES} />
   <Posts {posts} />
 </Layout>

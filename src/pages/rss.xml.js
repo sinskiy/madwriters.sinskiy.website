@@ -9,8 +9,13 @@ export async function GET(context) {
     description: SITE_DESCRIPTION,
     site: context.site,
     items: posts.map((post) => ({
-      ...post.data,
-      link: `/blog/${post.slug}/`,
+      title: post.data.title,
+      pubDate: post.data.pubDate,
+      description: post.data.description,
+      categories: post.data.categories,
+      customData: post.data.customData,
+      link: `/${post.data.author}/${post.slug}/`,
     })),
+    stylesheet: "/pretty-feed-v3.xsl",
   });
 }
