@@ -27,7 +27,7 @@ export default function Search({ searchList }: SearchProps) {
     <>
       <button
         onClick={() => dialogRef.current?.showModal()}
-        className="bg-surface text-onSurface text-lg rounded-full flex items-center gap-4 py-3 pl-12 pr-16 hover:bg-surface-high transition-colors"
+        className="bg-surface text-onSurface text-lg rounded-full flex items-center gap-4 py-3 px-6 md:pl-12 md:pr-16 hover:bg-surface-high transition-colors"
       >
         <svg
           className="opacity-50 h-full"
