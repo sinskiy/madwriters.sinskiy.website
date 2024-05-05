@@ -43,7 +43,7 @@ export default function Search({ searchList }: SearchProps) {
       </button>
       <dialog
         ref={dialogRef}
-        className="open:flex flex-col w-full xl:w-1/2 2xl:w-1/3 gap-4 items-center text-balance rounded-md bg-surface shadow-xl text-onSurface p-6 backdrop:bg-surface backdrop:opacity-50"
+        className="open:flex flex-col w-full xl:w-1/2 2xl:w-1/3 gap-4 items-center text-balance rounded-md bg-surface shadow-xl text-onSurface p-6"
       >
         <div className="w-full flex gap-4 items-center">
           <input
