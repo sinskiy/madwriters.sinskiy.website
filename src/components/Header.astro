@@ -1,6 +1,9 @@
 ---
-import Search from "./Search.astro";
+import Search from "./Search.tsx"
 import Theme from "./Theme.astro"
+import { getAllPosts } from "../utils";
+
+const posts = await getAllPosts();
 ---
 
 <header class="md:sticky top-4 z-10 flex justify-between items-center">
@@ -8,7 +11,7 @@ import Theme from "./Theme.astro"
 		<span class="sr-only">Go to the home page</span>
 		<img src="/logo.svg" width="64" height="64" alt="logo">
 	</a>
-	<!-- <Search /> -->
+	<Search client:load searchList={posts} />
 	<nav class="flex gap-4 items-center">
 		<a href="/rss.xml">
 			<span class="sr-only">Go to the rss page</span>
