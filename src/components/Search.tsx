@@ -45,12 +45,17 @@ export default function Search({ searchList }: SearchProps) {
         ref={dialogRef}
         className="open:flex flex-col w-full xl:w-1/2 2xl:w-1/3 gap-4 items-center text-balance rounded-md bg-surface shadow-xl text-onSurface p-6"
       >
-        <input
-          onChange={(e) => setQuery(e.target.value)}
-          type="text"
-          placeholder="Search"
-          className="w-full h-12 pl-8 bg-surface-high rounded-full focus:outline-none text-xl transition-colors"
-        />
+        <div className="w-full flex gap-4 items-center">
+          <input
+            onChange={(e) => setQuery(e.target.value)}
+            type="text"
+            placeholder="Search"
+            className="w-full h-12 pl-8 bg-surface-high rounded-full focus:outline-none text-xl transition-colors"
+          />
+          <form method="dialog">
+            <button className="underline">close</button>
+          </form>
+        </div>
         {posts.length ? (
           <ul>
             {posts.map((post) => (
