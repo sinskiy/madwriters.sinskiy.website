@@ -2,6 +2,7 @@
 import Search from "./Search.tsx"
 import Theme from "./Theme.astro"
 import { getAllPosts } from "../utils";
+import Language from "./Language.astro";
 
 const posts = await getAllPosts();
 ---
@@ -13,6 +14,7 @@ const posts = await getAllPosts();
 	</a>
 	<Search client:load searchList={posts} />
 	<nav class="flex gap-4 items-center">
+		<Language />
 		<a href="/rss.xml">
 			<span class="sr-only">Go to the rss page</span>
 			<svg aria-hidden="true" class="text-white opacity-50 hover:opacity-100 transition-opacity" width="28" height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">

@@ -29,7 +29,15 @@ export const getPostsByTag = async (tag: string) => {
   const allPosts = await getAllPosts();
   return allPosts.filter((post) => {
     if (!post.data.categories) return false;
+
     return post.data.categories.includes(tag);
+  });
+};
+
+export const getPostsByLanguage = async (language: string) => {
+  const allPosts = await getAllPosts();
+  return allPosts.filter((post) => {
+    return post.data.customData === `language: ${language}`;
   });
 };
 

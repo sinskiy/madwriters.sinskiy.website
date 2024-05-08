@@ -16,6 +16,12 @@ export interface Link {
 export interface Author extends Link {
   tags: Tag[];
 }
+
+export interface Language {
+  name: string;
+  href?: string;
+}
+
 export const AUTHORS: Author[] = [
   {
     name: "sinskiy",
@@ -52,6 +58,19 @@ export const LINKS: Link[] = [
     viewBox: "0 0 17 18",
   },
   ...AUTHORS,
+];
+
+export const LANGUAGES: Language[] = [
+  {
+    name: "all",
+    href: " ",
+  },
+  {
+    name: "english",
+  },
+  {
+    name: "russian",
+  },
 ];
 
 export const lightD =

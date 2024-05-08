@@ -62,6 +62,7 @@ html,
 .dark,
 .dark.default,
 .dark .default {
+  color-scheme: dark;
   --background: #151515;
   --on-background: #e6e6e6;
   --primary: #d7d7d7;
