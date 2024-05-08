@@ -62,10 +62,6 @@ export const LINKS: Link[] = [
 
 export const LANGUAGES: Language[] = [
   {
-    name: "all",
-    href: " ",
-  },
-  {
     name: "english",
   },
   {

@@ -37,7 +37,7 @@ export const getPostsByTag = async (tag: string) => {
 export const getPostsByLanguage = async (language: string) => {
   const allPosts = await getAllPosts();
   return allPosts.filter((post) => {
-    return post.data.customData === `language: ${language}`;
+    return post.data.language === language;
   });
 };
 
