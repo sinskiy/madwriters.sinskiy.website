@@ -27,10 +27,10 @@ export default function Search({ searchList }: SearchProps) {
     <>
       <button
         onClick={() => dialogRef.current?.showModal()}
-        className="opacity-50 hover:opacity-100 max-md:ml-auto mr-4 flex items-center md:gap-4 md:pl-12 md:pr-16 md:py-3 rounded-full md:bg-surface text-lg md:text-onSurface transition-opacity"
+        className="max-md:ml-auto mr-4 flex items-center md:gap-4 md:pl-12 md:pr-16 md:py-3 rounded-full md:bg-surface-low md:hover:bg-surface text-lg md:text-onSurface transition-[opacity,background-color]"
       >
         <svg
-          className="size-6 md:size-5"
+          className="size-6 max-md:opacity-50 max-md:hover:opacity-100 md:size-5"
           width="20"
           height="20"
           viewBox="0 0 20 20"

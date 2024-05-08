@@ -1,14 +1,17 @@
 ---
-import { LANGUAGES, type Language } from '../consts';
+import { CATEGORIES, LANGUAGES, type Language } from '../consts';
 import Layout from '../layouts/Layout.astro';
 import Posts from '../components/Posts.astro';
 import { getPostsByLanguage } from "../utils";
 import { type GetStaticPaths } from 'astro';
+import Tags from '../components/Tags.astro';
 export const getStaticPaths = (() => {
-  return LANGUAGES.map((language) => ({
+  return LANGUAGES.map((language) => {
+    return {
       params: { language: language.href ?? language.name },
       props: { language }
-  }))
+    }
+  });
 }) satisfies GetStaticPaths;
 
 interface Props {
@@ -19,5 +22,6 @@ const { language } = Astro.props;
 const posts = await getPostsByLanguage(language.href ?? language.name);
 ---
 <Layout>
+  <Tags tags={CATEGORIES} />
   <Posts {posts} />
 </Layout>
