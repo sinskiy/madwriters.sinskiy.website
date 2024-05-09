@@ -48,11 +48,12 @@ export default function Search({ searchList }: SearchProps) {
         <div className="w-full flex gap-4 items-center">
           <input
             onChange={(e) => setQuery(e.target.value)}
+            value={query}
             type="text"
             placeholder="Search"
             className="w-full h-12 pl-8 bg-surface-high rounded-full focus:outline-none text-xl transition-colors"
           />
-          <form method="dialog">
+          <form method="dialog" onSubmit={() => setQuery("")}>
             <button className="underline">close</button>
           </form>
         </div>
