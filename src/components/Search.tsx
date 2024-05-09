@@ -60,7 +60,10 @@ export default function Search({ searchList }: SearchProps) {
         {posts.length ? (
           <ul>
             {posts.map((post) => (
-              <li className="flex flex-col rounded-md bg-surface-highest p-6 text-base hover:bg-surface-high transition-colors">
+              <li
+                key={post.data.title}
+                className="flex flex-col rounded-md bg-surface-highest p-6 text-base hover:bg-surface-high transition-colors"
+              >
                 <a
                   href={`/${post.data.author}/${post.slug}`}
                   className="text-3xl"
