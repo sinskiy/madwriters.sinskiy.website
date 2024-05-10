@@ -5,6 +5,7 @@ import Posts from "../../components/Posts.astro";
 import { getPostsByAuthor } from "../../utils";
 import { type GetStaticPaths } from "astro";
 import PostsWithTags from "../../layouts/PostsWithTags.astro";
+
 export const getStaticPaths = (() => {
   return AUTHORS.map((author) => ({
     params: { author: author.href ?? author.name },
@@ -17,10 +18,12 @@ interface Props {
 }
 
 const { author } = Astro.props;
+const tags = author.tags.map((tag) => tag.name);
+
 const posts = await getPostsByAuthor(author.href ?? author.name);
 ---
 
 <PostsWithTags bodyClass={author.bodyClass}>
-  <Tags tags={author.tags.map((tag) => tag.name)} />
+  <Tags {tags} />
   <Posts {posts} />
 </PostsWithTags>

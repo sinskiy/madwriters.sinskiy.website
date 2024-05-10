@@ -3,14 +3,15 @@ import BlogPost from "../../components/BlogPost.astro";
 import { AUTHORS } from "../../consts";
 import { getAllPostsSorted } from "../../utils";
 import PostsWithTags from "../../layouts/PostsWithTags.astro";
+import type { GetStaticPaths } from "astro";
 
-export async function getStaticPaths() {
+export const getStaticPaths = (async () => {
   const posts = await getAllPostsSorted();
   return posts.map((post) => ({
     params: { author: post.data.author, post: post.slug },
     props: { post },
   }));
-}
+}) satisfies GetStaticPaths;
 
 const { post } = Astro.props;
 const { Content } = await post.render();

@@ -4,17 +4,16 @@ import { getPostsByTag } from "../../utils";
 import Posts from "../../components/Posts.astro";
 import Tags from "../../components/Tags.astro";
 import PostsWithTags from "../../layouts/PostsWithTags.astro";
+import type { GetStaticPaths } from "astro";
 
-export const getStaticPaths = async () => {
-  let tagPaths: any;
-  AUTHORS.forEach((author) => {
-    tagPaths = author.tags.map((tag) => ({
+export const getStaticPaths = (() => {
+  return AUTHORS.map((author) => {
+    return author.tags.map((tag) => ({
       params: { author: author.href ?? author.name, tag: tag.id },
       props: { authorObject: author, tagName: tag.name },
     }));
-  });
-  return tagPaths;
-};
+  }).flat();
+}) satisfies GetStaticPaths;
 
 const { tag } = Astro.params;
 interface Props {

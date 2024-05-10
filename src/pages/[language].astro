@@ -5,13 +5,12 @@ import { getPostsByLanguage } from "../utils";
 import { type GetStaticPaths } from "astro";
 import Tags from "../components/Tags.astro";
 import PostsWithTags from "../layouts/PostsWithTags.astro";
+
 export const getStaticPaths = (() => {
-  return LANGUAGES.map((language) => {
-    return {
-      params: { language: language.href ?? language.name },
-      props: { language },
-    };
-  });
+  return LANGUAGES.map((language) => ({
+    params: { language: language.href ?? language.name },
+    props: { language },
+  }));
 }) satisfies GetStaticPaths;
 
 interface Props {
@@ -19,7 +18,7 @@ interface Props {
 }
 
 const { language } = Astro.props;
-const posts = await getPostsByLanguage(language.href ?? language.name);
+const posts = await getPostsByLanguage(language.name);
 ---
 
 <PostsWithTags>
