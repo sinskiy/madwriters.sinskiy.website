@@ -2,7 +2,7 @@
 import { LINKS } from "../consts"
 const currentPath = Astro.url.pathname.split("/")[1];
 ---
-<nav class="flex md:hidden min-w-full text-xs bg-surface text-onSurface fixed bottom-0 left-0 z-10 capitalize">
+<nav class="flex lg:hidden min-w-full text-xs bg-surface text-onSurface fixed bottom-0 left-0 z-10 capitalize">
   {
     LINKS.map((link) => (
       <a

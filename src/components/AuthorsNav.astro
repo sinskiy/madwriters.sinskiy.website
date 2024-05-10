@@ -3,7 +3,7 @@ import { LINKS } from "../consts";
 import Breadcrumbs from "./Breadcrumbs.astro";
 const currentPath = Astro.url.pathname.split("/")[1];
 ---
-<nav class="sticky top-36 size-fit hidden md:flex flex-col gap-4 items-center">
+<nav class="sticky top-36 size-fit hidden lg:flex flex-col gap-4 items-center">
   {
     LINKS.map((link) => (
       <a
