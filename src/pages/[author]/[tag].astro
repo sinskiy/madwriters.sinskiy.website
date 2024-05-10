@@ -26,6 +26,6 @@ const posts = await getPostsByTag(tagName);
 ---
 
 <Layout bodyClass={authorObject.bodyClass}>
-  <Tags tags={CATEGORIES} active={tag} />
+  <Tags activeTagID={tag} />
   <Posts {posts} />
 </Layout>

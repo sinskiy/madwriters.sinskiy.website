@@ -1,5 +1,4 @@
 ---
-import { CATEGORIES } from "../consts";
 import Layout from "../layouts/Layout.astro";
 import Tags from "../components/Tags.astro";
 import Posts from "../components/Posts.astro";
@@ -9,6 +8,6 @@ const posts = await getAllPostsSorted();
 ---
 
 <Layout>
-  <Tags tags={CATEGORIES} />
+  <Tags />
   <Posts {posts} />
 </Layout>

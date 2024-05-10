@@ -1,7 +1,14 @@
 ---
 import Tag from "./Tag.astro";
 import { countTags } from "../utils";
-const { tags, active } = Astro.props;
+import { CATEGORIES } from "../consts";
+
+interface Props {
+  tags?: string[];
+  activeTagID?: string;
+}
+
+const { tags = CATEGORIES, activeTagID } = Astro.props;
 const countedTags = await countTags(tags);
 ---
 
@@ -12,7 +19,7 @@ const countedTags = await countTags(tags);
         <li>
           <a href={`/mad-writings/${tag.id}/`}>
             {
-              <Tag active={active === tag.id}>
+              <Tag active={activeTagID === tag.id}>
                 {tag.name}
                 <span class="opacity-50">&nbsp;{tag.count}</span>
               </Tag>

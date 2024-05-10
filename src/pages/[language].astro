@@ -23,6 +23,6 @@ const posts = await getPostsByLanguage(language.href ?? language.name);
 ---
 
 <Layout>
-  <Tags tags={CATEGORIES} />
+  <Tags />
   <Posts {posts} />
 </Layout>
