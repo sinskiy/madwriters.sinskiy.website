@@ -3,7 +3,7 @@ import { LANGUAGES, type Language } from "../consts";
 import Posts from "../components/Posts.astro";
 import { getPostsByLanguage } from "../utils";
 import { type GetStaticPaths } from "astro";
-import Tags from "../components/Tags.astro";
+import CountedTags from "../components/CountedTags.astro";
 import PostsWithTags from "../layouts/PostsWithTags.astro";
 
 export const getStaticPaths = (() => {
@@ -22,6 +22,6 @@ const posts = await getPostsByLanguage(language.name);
 ---
 
 <PostsWithTags>
-  <Tags />
+  <CountedTags />
   <Posts {posts} />
 </PostsWithTags>

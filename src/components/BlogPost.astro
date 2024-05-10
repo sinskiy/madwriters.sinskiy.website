@@ -2,7 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import FormattedDate from "./FormattedDate.astro";
 import Tag from "./Tag.astro";
-import { TAGS } from "../consts";
+import { TAGS } from "../tags";
 
 type Props = CollectionEntry<"blog">["data"] & {
   displayType?: "full" | "preview";
@@ -10,14 +10,12 @@ type Props = CollectionEntry<"blog">["data"] & {
 
 const {
   title,
-  author,
   pubDate,
   description,
-  customData,
   categories,
   displayType = "full",
 } = Astro.props;
-const tagsId =
+const tagsID =
   categories &&
   categories.map((tag) => TAGS.find((tagObject) => tagObject.name === tag)?.id);
 ---
@@ -25,10 +23,10 @@ const tagsId =
 {
   displayType === "full" && categories && (
     <ul class="flex flex-wrap gap-2">
-      {tagsId &&
+      {tagsID &&
         categories.map((tag, i) => (
           <li>
-            <a href={`/mad-writings/${tagsId[i]}/`}>
+            <a href={`/mad-writings/${tagsID[i]}/`}>
               <Tag>{tag}</Tag>
             </a>
           </li>

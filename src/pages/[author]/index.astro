@@ -1,10 +1,10 @@
 ---
-import { AUTHORS, type Author } from "../../consts";
-import Tags from "../../components/Tags.astro";
+import CountedTags from "../../components/CountedTags.astro";
 import Posts from "../../components/Posts.astro";
 import { getPostsByAuthor } from "../../utils";
 import { type GetStaticPaths } from "astro";
 import PostsWithTags from "../../layouts/PostsWithTags.astro";
+import { AUTHORS, type Author } from "../../authors";
 
 export const getStaticPaths = (() => {
   return AUTHORS.map((author) => ({
@@ -18,12 +18,11 @@ interface Props {
 }
 
 const { author } = Astro.props;
-const tags = author.tags.map((tag) => tag.name);
 
 const posts = await getPostsByAuthor(author.href ?? author.name);
 ---
 
 <PostsWithTags bodyClass={author.bodyClass}>
-  <Tags {tags} />
+  <CountedTags author={author.name} />
   <Posts {posts} />
 </PostsWithTags>

@@ -1,6 +1,6 @@
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
-import { TAGS } from "./consts";
+import { TAGS } from "./tags";
 
 export const sortPosts = (posts: CollectionEntry<"blog">[]) => {
   return posts.sort((a, b) => {
@@ -41,23 +41,25 @@ export const getPostsByLanguage = async (language: string) => {
   });
 };
 
-export const countTags = async (tags: string[]) => {
-  const countedTags = tags.reduce((acc: { [i: string]: number }, tag) => {
-    const tagId = TAGS.find((tagObject) => tagObject.name === tag)?.id;
-    if (!tagId) return { ...acc };
+export const countTagsWithAuthor = (author?: string) => {
+  const countedTags = TAGS.reduce((acc: { [i: string]: number }, tag) => {
+    if (author && tag.author !== author) {
+      return { ...acc };
+    }
 
-    const currCount = acc[tagId] ?? 0;
+    const currCount = acc[tag.id] ?? 0;
+    // an object where keys are tag id an values are count
     return {
       ...acc,
-      [tagId]: currCount + 1,
+      [tag.id]: currCount + 1,
     };
   }, {});
 
   const tagsWithOriginalNames = Object.entries(countedTags).map((tag, i) => {
     return {
       id: tag[0],
+      name: TAGS[i].name,
       count: tag[1],
-      name: tags[i],
     };
   });
 

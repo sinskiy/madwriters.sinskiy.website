@@ -1,15 +1,14 @@
 ---
 import Tag from "./Tag.astro";
-import { countTags } from "../utils";
-import { CATEGORIES } from "../consts";
+import { countTagsWithAuthor } from "../utils";
 
 interface Props {
-  tags?: string[];
+  author?: string;
   activeTagID?: string;
 }
 
-const { tags = CATEGORIES, activeTagID } = Astro.props;
-const countedTags = await countTags(tags);
+const { author, activeTagID } = Astro.props;
+const countedTags = countTagsWithAuthor(author);
 ---
 
 {

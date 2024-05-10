@@ -1,8 +1,8 @@
 ---
-import { AUTHORS, type Author } from "../../consts";
+import { AUTHORS, type Author } from "../../authors";
 import { getPostsByTag } from "../../utils";
 import Posts from "../../components/Posts.astro";
-import Tags from "../../components/Tags.astro";
+import CountedTags from "../../components/CountedTags.astro";
 import PostsWithTags from "../../layouts/PostsWithTags.astro";
 import type { GetStaticPaths } from "astro";
 
@@ -26,6 +26,6 @@ const posts = await getPostsByTag(tagName);
 ---
 
 <PostsWithTags bodyClass={authorObject.bodyClass}>
-  <Tags activeTagID={tag} />
+  <CountedTags activeTagID={tag} />
   <Posts {posts} />
 </PostsWithTags>
