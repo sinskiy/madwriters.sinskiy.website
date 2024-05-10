@@ -111,19 +111,16 @@ html,
 }
 
 .background {
-  background: radial-gradient(
-      rgba(100, 120, 150, 0.7),
-      rgba(100, 120, 150, 0.7)
-    ),
+  background:
+    radial-gradient(rgba(100, 120, 150, 0.7), rgba(100, 120, 150, 0.7)),
     url("/collage.webp") no-repeat 0% 0%;
   object-fit: contain;
   background-size: cover, cover;
 }
 
 .icon {
-  color: var(--onSurface);
   opacity: 50%;
-  transition: opacity cubic-bezier(0.4, 0, 0.2, 1) 150ms;
+  transition: opacity 150ms;
 }
 
 .icon:hover,
