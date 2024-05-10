@@ -3,6 +3,7 @@ import { getAllPosts } from "../utils";
 import Menu from "./Menu.astro";
 import MenuMobile from "./MenuMobile.astro";
 import Search from "./Search";
+import Theme from "./Theme.astro";
 
 const posts = await getAllPosts();
 ---
@@ -13,6 +14,9 @@ const posts = await getAllPosts();
 		<img src="/logo.svg" width="64" height="64" alt="logo">
 	</a>
 	<Search client:load searchList={posts} />
-	<Menu />
-	<MenuMobile />
+	<div class="flex gap-4 items-center">
+		<Menu />
+		<Theme />
+		<MenuMobile />
+	</div>
 </header>

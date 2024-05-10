@@ -119,3 +119,14 @@ html,
   object-fit: contain;
   background-size: cover, cover;
 }
+
+.icon {
+  color: var(--onSurface);
+  opacity: 50%;
+  transition: opacity cubic-bezier(0.4, 0, 0.2, 1) 150ms;
+}
+
+.icon:hover,
+input:hover ~ .icon {
+  opacity: 100%;
+}
