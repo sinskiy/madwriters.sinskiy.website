@@ -1,6 +1,13 @@
 ---
 const { active } = Astro.props;
 ---
-<div class:list={[active ? "bg-secondary text-onSecondary" : "bg-surface-high text-onSurface", !active && "hover:bg-surface transition-colors", "px-4 py-1 rounded-[4px]"]}>
+
+<div
+  class:list={[
+    active ? "bg-secondary text-onSecondary" : "bg-surface-high text-onSurface",
+    !active && "transition-colors hover:bg-surface",
+    "rounded-[4px] px-4 py-1",
+  ]}
+>
   <slot />
 </div>

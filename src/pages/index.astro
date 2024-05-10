@@ -1,12 +1,13 @@
 ---
-import { CATEGORIES } from '../consts';
-import Layout from '../layouts/Layout.astro';
-import Tags from '../components/Tags.astro';
-import Posts from '../components/Posts.astro';
-import { getAllPosts } from '../utils';
+import { CATEGORIES } from "../consts";
+import Layout from "../layouts/Layout.astro";
+import Tags from "../components/Tags.astro";
+import Posts from "../components/Posts.astro";
+import { getAllPostsSorted } from "../utils";
 
-const posts = await getAllPosts();
+const posts = await getAllPostsSorted();
 ---
+
 <Layout>
   <Tags tags={CATEGORIES} />
   <Posts {posts} />

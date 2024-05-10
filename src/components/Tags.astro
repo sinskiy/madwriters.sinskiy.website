@@ -1,14 +1,14 @@
 ---
-import Tag from "./Tag.astro"
-import { countTags } from "../utils"
+import Tag from "./Tag.astro";
+import { countTags } from "../utils";
 const { tags, active } = Astro.props;
 const countedTags = await countTags(tags);
 ---
+
 {
-  countedTags.length !==  0 &&
-  <ul class="flex gap-2 flex-wrap">
-    {
-      countedTags.map((tag) => (
+  countedTags.length !== 0 && (
+    <ul class="flex flex-wrap gap-2">
+      {countedTags.map((tag) => (
         <li>
           <a href={`/mad-writings/${tag.id}/`}>
             {
@@ -19,7 +19,7 @@ const countedTags = await countTags(tags);
             }
           </a>
         </li>
-      ))
-    }
-  </ul>
+      ))}
+    </ul>
+  )
 }

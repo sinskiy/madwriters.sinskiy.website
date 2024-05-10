@@ -1,22 +1,22 @@
 ---
-import { getAllPosts } from "../utils";
+import { getAllPostsSorted } from "../utils";
 import Menu from "./Menu.astro";
 import MenuMobile from "./MenuMobile.astro";
 import Search from "./Search";
 import Theme from "./Theme.astro";
 
-const posts = await getAllPosts();
+const posts = await getAllPostsSorted();
 ---
 
-<header class="md:sticky top-4 z-10 flex justify-between items-center">
-	<a href="/">
-		<span class="sr-only">Go to the home page</span>
-		<img src="/logo.svg" width="64" height="64" alt="logo">
-	</a>
-	<Search client:load searchList={posts} />
-	<div class="flex gap-4 items-center">
-		<Menu />
-		<Theme />
-		<MenuMobile />
-	</div>
+<header class="top-4 z-10 flex items-center justify-between md:sticky">
+  <a href="/">
+    <span class="sr-only">Go to the home page</span>
+    <img src="/logo.svg" width="64" height="64" alt="logo" />
+  </a>
+  <Search client:load searchList={posts} />
+  <div class="flex items-center gap-4">
+    <Menu />
+    <Theme />
+    <MenuMobile />
+  </div>
 </header>

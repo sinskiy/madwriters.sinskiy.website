@@ -1,42 +1,62 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import FormattedDate from './FormattedDate.astro';
-import Tag from './Tag.astro';
-import { TAGS } from '../consts';
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "./FormattedDate.astro";
+import Tag from "./Tag.astro";
+import { TAGS } from "../consts";
 
-type Props = CollectionEntry<'blog'>['data'] & {displayType?: "full" | "preview" };
+type Props = CollectionEntry<"blog">["data"] & {
+  displayType?: "full" | "preview";
+};
 
-const { title, author, pubDate, description, customData, categories, displayType = "full" } = Astro.props;
-const tagsId = categories && categories.map((tag) => TAGS.find((tagObject) => tagObject.name === tag)?.id)
+const {
+  title,
+  author,
+  pubDate,
+  description,
+  customData,
+  categories,
+  displayType = "full",
+} = Astro.props;
+const tagsId =
+  categories &&
+  categories.map((tag) => TAGS.find((tagObject) => tagObject.name === tag)?.id);
 ---
+
 {
-	displayType === "full" && categories &&
-		<ul class="flex gap-2 flex-wrap">
-			{tagsId &&
-				categories.map((tag, i) => (
-					<li>
-						<a href={`/mad-writings/${tagsId[i]}/`}>
-							<Tag>{tag}</Tag>
-						</a>
-					</li>
-				))
-			}
-		</ul>
+  displayType === "full" && categories && (
+    <ul class="flex flex-wrap gap-2">
+      {tagsId &&
+        categories.map((tag, i) => (
+          <li>
+            <a href={`/mad-writings/${tagsId[i]}/`}>
+              <Tag>{tag}</Tag>
+            </a>
+          </li>
+        ))}
+    </ul>
+  )
 }
-<article class:list={[displayType === "preview" ? "mb-2 hover:bg-surface-high" : "mb-24", "bg-surface transition-colors rounded-2xl px-8 py-4 md:px-16 md:py-8 w-full relative"]}>
-	<header class="mb-2">
-		<h2 class="text-inverse text-2xl md:text-4xl font-bold">{title}</h2>
-		{pubDate && <FormattedDate date={pubDate} />}
-		<!-- {
+<article
+  class:list={[
+    displayType === "preview" ? "mb-2 hover:bg-surface-high" : "mb-24",
+    "relative w-full rounded-2xl bg-surface px-8 py-4 transition-colors md:px-16 md:py-8",
+  ]}
+>
+  <header class="mb-2">
+    <h2 class="text-2xl font-bold text-inverse md:text-4xl">{title}</h2>
+    {pubDate && <FormattedDate date={pubDate} />}
+    <!-- {
 			customData && (
 				<div>
 					Last updated on <FormattedDate date={new Date(customData)} />
 				</div>
 			)
 		} -->
-	</header>
-	<div class="prose dark:prose-invert break-words prose-sm sm:prose-base prose-headings:my-6 min-w-full">
-		{displayType === "preview" && description}
-		<slot />
-	</div>
+  </header>
+  <div
+    class="prose prose-sm min-w-full break-words dark:prose-invert sm:prose-base prose-headings:my-6"
+  >
+    {displayType === "preview" && description}
+    <slot />
+  </div>
 </article>

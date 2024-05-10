@@ -12,21 +12,21 @@ export const sortPosts = (posts: CollectionEntry<"blog">[]) => {
   });
 };
 
-export const getAllPosts = async () => {
+export const getAllPostsSorted = async () => {
   const posts = await getCollection("blog");
   const sortedPosts = sortPosts(posts);
   return sortedPosts;
 };
 
 export const getPostsByAuthor = async (author: string) => {
-  const allPosts = await getAllPosts();
+  const allPosts = await getAllPostsSorted();
   return allPosts.filter((post) => {
     return post.data.author === author;
   });
 };
 
 export const getPostsByTag = async (tag: string) => {
-  const allPosts = await getAllPosts();
+  const allPosts = await getAllPostsSorted();
   return allPosts.filter((post) => {
     if (!post.data.categories) return false;
 
@@ -35,7 +35,7 @@ export const getPostsByTag = async (tag: string) => {
 };
 
 export const getPostsByLanguage = async (language: string) => {
-  const allPosts = await getAllPosts();
+  const allPosts = await getAllPostsSorted();
   return allPosts.filter((post) => {
     return post.data.language === language;
   });

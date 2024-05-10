@@ -3,15 +3,27 @@ import { LINKS } from "../consts";
 import Breadcrumbs from "./Breadcrumbs.astro";
 const currentPath = Astro.url.pathname.split("/")[1];
 ---
-<nav class="sticky top-36 size-fit hidden lg:flex flex-col gap-4 items-center">
+
+<nav class="sticky top-36 hidden size-fit flex-col items-center gap-4 lg:flex">
   {
     LINKS.map((link) => (
       <a
         title={link.title ?? link.name}
         href={`/${link.href ?? link.name}`}
-        class:list={[(link.href ?? link.name) == currentPath ? "bg-secondary !text-onSecondary" : "hover:bg-surface hover:text-onSurface", "transition-all whitespace-nowrap gap-2 text-center text-primary capitalize flex items-center justify-center w-[calc(100%+2rem)] rounded-full py-3 text-base"]}
+        class:list={[
+          (link.href ?? link.name) == currentPath
+            ? "bg-secondary !text-onSecondary"
+            : "hover:bg-surface hover:text-onSurface",
+          "flex w-[calc(100%+2rem)] items-center justify-center gap-2 whitespace-nowrap rounded-full py-3 text-center text-base capitalize text-primary transition-all",
+        ]}
       >
-        <svg width="16" height="16" viewBox={link.viewBox ?? "0 0 17 16"} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          width="16"
+          height="16"
+          viewBox={link.viewBox ?? "0 0 17 16"}
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path d={link.path} />
         </svg>
         {link.name}

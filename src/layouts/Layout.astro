@@ -1,23 +1,22 @@
 ---
-import '../styles/global.css';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import "../styles/global.css";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 import Header from "../components/Header.astro";
-import BaseHead from '../components/BaseHead.astro';
-import AuthorsNav from '../components/AuthorsNav.astro';
-import AuthorsNavMobile from "../components/AuthorsNavMobile.astro"
+import BaseHead from "../components/BaseHead.astro";
+import AuthorsNav from "../components/AuthorsNav.astro";
 
 const { bodyClass } = Astro.props;
 ---
+
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body class:list={[bodyClass, "my-4 mx-4 md:mx-8 xl:mx-[20%]"]}>
+  <body class:list={[bodyClass, "m-4 xl:mx-[20%]"]}>
     <Header />
-    <div class="flex gap-16 mt-16">
+    <div class="mt-16 flex gap-16">
       <AuthorsNav />
-      <AuthorsNavMobile />
       <main class="w-full">
         <section class="flex flex-col gap-6">
           <slot />

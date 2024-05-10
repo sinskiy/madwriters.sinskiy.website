@@ -1,29 +1,30 @@
 ---
-import { AUTHORS, type Author, CATEGORIES } from "../../consts"
+import { AUTHORS, type Author, CATEGORIES } from "../../consts";
 import { getPostsByTag } from "../../utils";
 import Layout from "../../layouts/Layout.astro";
 import Posts from "../../components/Posts.astro";
 import Tags from "../../components/Tags.astro";
-export const getStaticPaths = (async () => {
+export const getStaticPaths = async () => {
   let tagPaths: any;
   AUTHORS.forEach((author) => {
     tagPaths = author.tags.map((tag) => ({
-        params: { author: author.href ?? author.name, tag: tag.id},
-        props: { authorObject: author, tagName: tag.name }
-    }))
-  })
+      params: { author: author.href ?? author.name, tag: tag.id },
+      props: { authorObject: author, tagName: tag.name },
+    }));
+  });
   return tagPaths;
-})
+};
 
 const { tag } = Astro.params;
 interface Props {
   authorObject: Author;
-  tagName: string
+  tagName: string;
 }
 const { authorObject, tagName } = Astro.props;
 
 const posts = await getPostsByTag(tagName);
 ---
+
 <Layout bodyClass={authorObject.bodyClass}>
   <Tags tags={CATEGORIES} active={tag} />
   <Posts {posts} />

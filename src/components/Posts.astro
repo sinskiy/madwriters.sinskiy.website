@@ -1,21 +1,25 @@
 ---
 interface Props {
-  posts: CollectionEntry<"blog">[]
+  posts: CollectionEntry<"blog">[];
 }
 import type { CollectionEntry } from "astro:content";
-import BlogPost from "./BlogPost.astro"
+import BlogPost from "./BlogPost.astro";
 const { posts } = Astro.props;
 ---
+
 {
-  <ul class="max-h-[calc(100vh-15rem)] overflow-y-scroll pb-24 md:pb-0" slot="after">
-    {
-      posts.map((post) => (
+  (
+    <ul
+      class="max-h-[calc(100vh-15rem)] overflow-y-scroll pb-24 md:pb-0"
+      slot="after"
+    >
+      {posts.map((post) => (
         <li>
           <a href={`/${post.data.author}/${post.slug}/`}>
             <BlogPost {...post.data} displayType="preview" />
           </a>
         </li>
-      ))
-    }
-  </ul>
+      ))}
+    </ul>
+  )
 }

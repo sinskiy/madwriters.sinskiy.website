@@ -1,25 +1,26 @@
 ---
-import BlogPost from '../../components/BlogPost.astro';
-import Layout from '../../layouts/Layout.astro';
-import { AUTHORS } from '../../consts';
-import { getAllPosts } from '../../utils';
+import BlogPost from "../../components/BlogPost.astro";
+import Layout from "../../layouts/Layout.astro";
+import { AUTHORS } from "../../consts";
+import { getAllPostsSorted } from "../../utils";
 
 export async function getStaticPaths() {
-	const posts = await getAllPosts();
-	return posts.map((post) => ({
-		params: { author: post.data.author, post: post.slug },
-		props: { post },
-	}));
+  const posts = await getAllPostsSorted();
+  return posts.map((post) => ({
+    params: { author: post.data.author, post: post.slug },
+    props: { post },
+  }));
 }
 
 const { post } = Astro.props;
 const authorObject = AUTHORS.find((author) => {
-	return author.href == post.data.author;
-})
+  return author.href == post.data.author;
+});
 const { Content } = await post.render();
 ---
+
 <Layout bodyClass={authorObject?.bodyClass}>
-	<BlogPost {...post.data}>
-		<Content />
-	</BlogPost>
+  <BlogPost {...post.data}>
+    <Content />
+  </BlogPost>
 </Layout>
