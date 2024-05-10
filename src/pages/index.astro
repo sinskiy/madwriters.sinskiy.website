@@ -1,13 +1,13 @@
 ---
-import Layout from "../layouts/Layout.astro";
 import Tags from "../components/Tags.astro";
 import Posts from "../components/Posts.astro";
 import { getAllPostsSorted } from "../utils";
+import PostsWithTags from "../layouts/PostsWithTags.astro";
 
 const posts = await getAllPostsSorted();
 ---
 
-<Layout>
+<PostsWithTags>
   <Tags />
   <Posts {posts} />
-</Layout>
+</PostsWithTags>

@@ -5,6 +5,10 @@ import Header from "../components/Header.astro";
 import BaseHead from "../components/BaseHead.astro";
 import AuthorsNav from "../components/AuthorsNav.astro";
 
+interface Props {
+  bodyClass?: string;
+}
+
 const { bodyClass } = Astro.props;
 ---
 
@@ -18,11 +22,7 @@ const { bodyClass } = Astro.props;
     <div class="mt-16 flex gap-16">
       <AuthorsNav />
       <main class="w-full">
-        <section class="flex flex-col gap-6">
-          <slot />
-          <slot name="posts" />
-          <slot name="after" />
-        </section>
+        <slot />
       </main>
     </div>
   </body>

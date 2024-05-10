@@ -1,0 +1,15 @@
+---
+import Layout from "./Layout.astro";
+
+interface Props {
+  bodyClass?: string;
+}
+
+const { bodyClass } = Astro.props;
+---
+
+<Layout bodyClass={bodyClass}>
+  <section class="flex flex-col gap-6">
+    <slot />
+  </section>
+</Layout>
