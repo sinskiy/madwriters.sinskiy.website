@@ -118,12 +118,12 @@ html,
   background-size: cover, cover;
 }
 
-:where(.icon) {
+:where(.icon-activatable) {
   opacity: 50%;
   transition: opacity 150ms;
 }
 
-.icon:hover,
-input:hover ~ .icon {
+.icon-activatable:hover,
+input:hover ~ .icon-activatable {
   opacity: 100%;
 }

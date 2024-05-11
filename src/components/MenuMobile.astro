@@ -20,16 +20,16 @@ import RSSIcon from "./icons/RSSIcon.astro";
   class="fixed bottom-0 right-0 top-0 z-20 flex w-fit translate-x-full flex-col items-end gap-8 bg-surface-low py-9 pl-16 pr-8 transition-transform peer-has-[:checked]:translate-x-0 lg:hidden"
 >
   <!-- imitate hamburger icon inside the menu -->
-  <div aria-hidden class="size-6"></div>
+  <div aria-hidden="true" class="size-6"></div>
   <Language />
-  <a href="/rss.xml" class="icon flex items-center gap-2">
+  <a href="/rss.xml" class="icon-activatable flex items-center gap-2">
     <RSSIcon />
     <span>RSS</span>
   </a>
   <a
     href="https://github.com/Sinskiy/"
     target="_blank"
-    class="icon flex items-center gap-2"
+    class="icon-activatable flex items-center gap-2"
   >
     <GitHubIcon />
     <span>Github</span>
