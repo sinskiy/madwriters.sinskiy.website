@@ -118,7 +118,7 @@ html,
   background-size: cover, cover;
 }
 
-.icon {
+:where(.icon) {
   opacity: 50%;
   transition: opacity 150ms;
 }

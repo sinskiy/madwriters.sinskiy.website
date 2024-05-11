@@ -8,6 +8,7 @@ type Props = CollectionEntry<"blog">["data"] & {
   displayType?: "full" | "preview";
 };
 
+// TODO add last updated
 const {
   title,
   pubDate,
@@ -37,16 +38,16 @@ const tagsID =
 <article
   class:list={[
     displayType === "preview" ? "mb-2 hover:bg-surface-high" : "mb-24",
-    "relative w-full rounded-2xl bg-surface px-8 py-4 transition-colors md:px-16 md:py-8",
+    "relative w-full rounded-2xl bg-surface px-16 py-8 transition-colors",
   ]}
 >
   <header class="mb-2">
-    <h2 class="text-2xl font-bold text-inverse md:text-4xl">{title}</h2>
+    <h2 class="text-2xl font-bold text-onSurface md:text-4xl">{title}</h2>
     {pubDate && <FormattedDate date={pubDate} />}
     <!-- {
-			customData && (
+			updatedDate && (
 				<div>
-					Last updated on <FormattedDate date={new Date(customData)} />
+					Last updated on <FormattedDate date={new Date(updatedDate)} />
 				</div>
 			)
 		} -->
