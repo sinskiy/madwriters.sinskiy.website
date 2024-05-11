@@ -13,7 +13,7 @@ export function formatPaths(paths: string[]): Array<Path | undefined> {
   let walked: string = "/";
   const formattedPaths = paths.map((path, i) => {
     if (pathIsRoot(path, i)) {
-      return { name: "home", URL: path };
+      return { name: "home", URL: "/" };
     } else if (!pathIsRoot(path, i) && pathIsEmpty(path)) {
       return;
     } else {

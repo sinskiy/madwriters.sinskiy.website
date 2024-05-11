@@ -17,11 +17,11 @@ const { bodyClass } = Astro.props;
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body class:list={[bodyClass, "m-4 xl:mx-[20%]"]}>
+  <body class:list={[bodyClass, "m-4 xl:mx-[20%]"]} transition:animate="none">
     <Header />
     <div class="mt-16 flex gap-16">
       <AuthorsNav />
-      <main class="w-full">
+      <main class="w-full" transition:animate="fade">
         <slot />
       </main>
     </div>

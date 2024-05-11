@@ -3,7 +3,7 @@ import { LANGUAGES } from "../consts";
 import LanguagesIcon from "./icons/LanguagesIcon.astro";
 ---
 
-<div class="relative">
+<div class="relative text-onSurface" transition:persist>
   <div class="absolute left-4 top-2 opacity-50">
     <LanguagesIcon />
   </div>
@@ -38,5 +38,5 @@ import LanguagesIcon from "./icons/LanguagesIcon.astro";
     document.querySelector<HTMLSelectElement>("#language");
   languageSelector?.addEventListener("change", handleLanguageSelect);
 
-  window?.addEventListener("load", selectLanguageByURL);
+  window.addEventListener("load", selectLanguageByURL);
 </script>

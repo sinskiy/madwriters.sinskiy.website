@@ -1,4 +1,4 @@
-<div class="relative">
+<div class="relative" transition:persist>
   <label for="theme-toggler" class="sr-only">Toggle theme</label>
   <input
     name="theme-toggler"
@@ -46,10 +46,12 @@
     toggleTheme(target.checked);
   }
 
-  window.onload = () => {
+  function handleLoad() {
     const theme = localStorage.getItem("darkMode") === "true";
     toggleTheme(theme);
-  };
+  }
+
+  window.addEventListener("load", handleLoad);
 
   themeToggler?.addEventListener("click", onThemeClick);
 </script>
