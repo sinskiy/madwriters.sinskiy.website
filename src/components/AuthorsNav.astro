@@ -11,7 +11,7 @@ const currentPath = Astro.url.pathname.split("/")[1];
         title={link.title ?? link.name}
         href={`/${link.href ?? link.name}`}
         class:list={[
-          (link.href ?? link.name) == currentPath
+          (link.href ?? link.name) === currentPath
             ? "bg-secondary !text-onSecondary"
             : "hover:bg-surface hover:text-onSurface",
           "flex w-[calc(100%+2rem)] items-center justify-center gap-2 whitespace-nowrap rounded-full py-3 text-center text-base capitalize text-primary transition-all",

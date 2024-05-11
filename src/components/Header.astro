@@ -14,7 +14,7 @@ const posts = await getAllPostsSorted();
     <img src="/logo.svg" width="64" height="64" alt="logo" />
   </a>
   <Search client:load searchList={posts} />
-  <div class="flex items-center gap-4">
+  <div class="flex items-center gap-4" transition:persist="interactive">
     <Menu />
     <Theme />
     <MenuMobile />

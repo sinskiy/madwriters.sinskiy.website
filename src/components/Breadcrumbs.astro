@@ -7,21 +7,15 @@ const filteredAndFormattedPaths = filterAndFormatPaths(paths);
 
 {
   filteredAndFormattedPaths.length > 1 && (
-    <ul class="whitespace-nowrap text-sm opacity-80">
-      <li class="group flex gap-1">
-        {filteredAndFormattedPaths.map((path) => {
-          return (
-            path && (
-              <>
-                <a class="underline" href={path.URL}>
-                  {path.name}
-                </a>
-                <span class="last-of-type:hidden">/</span>
-              </>
-            )
-          );
-        })}
-      </li>
+    <ul class="flex gap-1 whitespace-nowrap text-sm opacity-80">
+      {filteredAndFormattedPaths.map((path) => (
+        <li class="[&>span]:last:hidden">
+          <a class="underline" href={path.URL} transition:name={path.URL}>
+            {path.name}
+          </a>
+          <span class="ml-1">/</span>
+        </li>
+      ))}
     </ul>
   )
 }
