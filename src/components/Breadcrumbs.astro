@@ -1,40 +1,15 @@
 ---
-interface Path {
-  name: string;
-  URL: string;
-}
+import { filterAndFormatPaths } from "../paths";
 
 const paths = Astro.url.pathname.split("/");
-let walked = "/";
-const formattedPaths: Array<Path | undefined> = paths
-  .map((path, i) => {
-    if (pathIsRoot(path, i)) {
-      return { name: "home", URL: walked };
-    } else if (path === "") {
-      return;
-    } else {
-      walked += path + "/";
-      path = walkedTooLong(walked) ? "..." : path;
-      return { name: path, URL: walked };
-    }
-  })
-  .filter((path) => path?.URL && path.name);
-
-function pathIsRoot(path: string, i: number): boolean {
-  return i === 0 && path === "";
-}
-
-function walkedTooLong(walked: string): boolean {
-  const MAX = 22;
-  return walked.length > MAX;
-}
+const filteredAndFormattedPaths = filterAndFormatPaths(paths);
 ---
 
 {
-  formattedPaths.length > 1 && (
+  filteredAndFormattedPaths.length > 1 && (
     <ul class="whitespace-nowrap text-sm opacity-80">
       <li class="group flex gap-1">
-        {formattedPaths.map((path) => {
+        {filteredAndFormattedPaths.map((path) => {
           return (
             path && (
               <>
