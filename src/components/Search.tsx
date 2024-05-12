@@ -37,7 +37,6 @@ export default function Search({ searchList }: SearchProps) {
             onChange={(e) => setQuery(e.target.value)}
             value={query}
             type="search"
-            aria-description="search results will appear below"
             name="search"
             id="search"
             placeholder="Search"

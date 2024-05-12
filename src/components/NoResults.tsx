@@ -1,7 +1,9 @@
 export default function NoResults() {
   return (
     <div className="flex flex-col items-center gap-4">
-      <p className="text-3xl text-onSurface">No results</p>
+      <p className="text-2xl font-bold text-onSurface md:text-4xl">
+        No results
+      </p>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
