@@ -7,8 +7,6 @@ interface Props {
   image?: string;
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-
 const { title, description, image = "/thumbnail.webp" } = Astro.props;
 ---
 
@@ -27,6 +25,7 @@ const { title, description, image = "/thumbnail.webp" } = Astro.props;
   });
 </script>
 <ViewTransitions />
+
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -43,13 +42,13 @@ const { title, description, image = "/thumbnail.webp" } = Astro.props;
 />
 
 <!-- URL -->
-<link rel="canonical" href={canonicalURL} />
 <link
   rel="alternate"
   type="application/rss+xml"
   title={title}
   href={`${Astro.site}rss.xml`}
 />
+<link rel="sitemap" href="/sitemap-index.xml" />
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
