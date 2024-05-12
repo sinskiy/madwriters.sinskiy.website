@@ -1,8 +1,9 @@
 @font-face {
   font-family: "el messiri";
-  src: url("/fonts/el-messiri.woff2") format("woff2");
-  font-weight: 400 700;
   font-style: normal;
+  font-weight: 400 700;
+  src: url("/fonts/el-messiri.woff2") format("woff2");
+  font-display: swap;
 }
 
 html {
