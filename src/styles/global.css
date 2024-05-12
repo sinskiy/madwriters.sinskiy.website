@@ -113,7 +113,7 @@ html,
 
 .background {
   background:
-    radial-gradient(rgba(100, 120, 150, 0.7), rgba(100, 120, 150, 0.7)),
+    radial-gradient(rgba(100, 120, 150, 0.8), rgba(100, 120, 150, 0.8)),
     url("/collage.webp") no-repeat 0% 0%;
   object-fit: contain;
   background-size: cover, cover;
