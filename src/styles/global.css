@@ -8,7 +8,6 @@
 
 html {
   font-family: "el messiri", serif;
-  scrollbar-gutter: stable;
 }
 body {
   background-color: var(--background);
