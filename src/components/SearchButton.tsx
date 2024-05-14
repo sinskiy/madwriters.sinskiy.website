@@ -9,7 +9,7 @@ export default function SearchButton({ dialogRef }: SearchButtonProps) {
     <button
       onClick={() => dialogRef.current?.showModal()}
       aria-label="open search modal"
-      className="z-20 mr-4 flex items-center rounded-full text-lg transition-[opacity,background-color] max-sm:ml-auto sm:gap-4 sm:bg-surface-low sm:py-3 sm:pl-12 sm:pr-16 sm:text-onSurface sm:hover:bg-surface"
+      className="mr-4 flex items-center rounded-full text-lg transition-[opacity,background-color] max-sm:ml-auto sm:gap-4 sm:bg-surface-low sm:py-3 sm:pl-12 sm:pr-16 sm:text-onSurface sm:hover:bg-surface"
     >
       <svg
         className="icon-activatable sm:opacity-100"
