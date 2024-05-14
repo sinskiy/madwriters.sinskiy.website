@@ -1,21 +1,40 @@
 ---
 import Language from "./Language.astro";
+import Theme from "./Theme.astro";
+import CloseIcon from "./icons/CloseIcon.astro";
 import GitHubIcon from "./icons/GitHubIcon.astro";
+import HamburgerIcon from "./icons/HamburgerIcon.astro";
 import RSSIcon from "./icons/RSSIcon.astro";
 ---
 
-<nav class="hidden items-center gap-4 lg:flex">
+<div class="peer relative z-50 lg:hidden">
+  <label for="hamburger" class="sr-only">open menu</label>
+  <input
+    type="checkbox"
+    name="hamburger"
+    id="hamburger"
+    class="peer absolute z-10 size-full opacity-0"
+  />
+  <HamburgerIcon />
+  <CloseIcon />
+</div>
+<nav
+  class="z-10 flex w-fit items-center gap-4 transition-transform max-lg:fixed max-lg:bottom-0 max-lg:right-0 max-lg:top-0 max-lg:translate-x-full max-lg:flex-col max-lg:items-end max-lg:gap-8 max-lg:bg-surface-low max-lg:py-9 max-lg:pl-16 max-lg:pr-8 max-lg:text-onSurface max-lg:peer-has-[:checked]:translate-x-0"
+  transition:persist="menu"
+>
+  <!-- imitate hamburger icon inside the menu -->
+  <div aria-hidden="true" class="size-6"></div>
   <Language />
-  <a href="/rss.xml" target="_blank" class="icon-activatable">
-    <span class="sr-only">Go to the rss page</span>
+  <a href="/rss.xml" class="icon-activatable flex items-center gap-2">
     <RSSIcon />
+    <span class="lg:sr-only">RSS</span>
   </a>
   <a
     href="https://github.com/Sinskiy/"
-    target="_blank"
-    class="icon-activatable"
+    class="icon-activatable flex items-center gap-2"
   >
-    <span class="sr-only">Go to blog's Github page</span>
     <GitHubIcon />
+    <span class="lg:sr-only">Github</span>
   </a>
+  <Theme />
 </nav>
