@@ -1,4 +1,5 @@
 ---
+import AuthorsNav from "./AuthorsNav.astro";
 import Language from "./Language.astro";
 import Theme from "./Theme.astro";
 import CloseIcon from "./icons/CloseIcon.astro";
@@ -19,22 +20,26 @@ import RSSIcon from "./icons/RSSIcon.astro";
   <CloseIcon />
 </div>
 <nav
-  class="z-10 flex items-center gap-4 rounded-l-3xl transition-transform max-lg:fixed max-lg:bottom-0 max-lg:right-0 max-lg:top-0 max-lg:translate-x-full max-lg:flex-col max-lg:items-end max-lg:gap-8 max-lg:bg-surface-low max-lg:py-9 max-lg:pl-16 max-lg:pr-8 max-lg:text-onSurface max-lg:peer-has-[:checked]:translate-x-0"
-  transition:persist="menu"
+  class="z-10 flex rounded-l-3xl transition-transform max-lg:fixed max-lg:bottom-0 max-lg:right-0 max-lg:top-0 max-lg:translate-x-full max-lg:flex-col max-lg:bg-surface-low max-lg:px-8 max-lg:py-9 max-lg:pl-16 max-lg:text-onSurface max-lg:peer-has-[:checked]:translate-x-0"
 >
   <!-- imitate hamburger icon inside the menu -->
-  <div aria-hidden="true" class="size-6"></div>
-  <Language />
-  <a href="/rss.xml" class="icon-activatable flex items-center gap-2">
-    <RSSIcon />
-    <span class="lg:sr-only">RSS</span>
-  </a>
-  <a
-    href="https://github.com/Sinskiy/"
-    class="icon-activatable flex items-center gap-2"
-  >
-    <GitHubIcon />
-    <span class="lg:sr-only">Github</span>
-  </a>
-  <Theme />
+  <div aria-hidden="true" class="max-lg:size-6"></div>
+  <div class="flex h-full flex-col justify-between max-lg:mt-12">
+    <AuthorsNav />
+    <div class="flex items-center gap-4 max-lg:flex-col max-lg:gap-8">
+      <Language />
+      <a href="/rss.xml" class="icon-activatable flex items-center gap-2">
+        <RSSIcon />
+        <span class="lg:sr-only">RSS</span>
+      </a>
+      <a
+        href="https://github.com/Sinskiy/"
+        class="icon-activatable flex items-center gap-2"
+      >
+        <GitHubIcon />
+        <span class="lg:sr-only">Github</span>
+      </a>
+      <Theme />
+    </div>
+  </div>
 </nav>

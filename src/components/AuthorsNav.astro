@@ -1,10 +1,21 @@
 ---
 import { LINKS } from "../consts";
 import Breadcrumbs from "./Breadcrumbs.astro";
+
+interface Props {
+  variant?: "sticky" | "normal";
+}
+const { variant = "normal" } = Astro.props;
+
+const variants = {
+  normal: "flex lg:hidden",
+  sticky: "sticky top-36 hidden lg:flex text-center text-primary",
+};
+
 const currentPath = Astro.url.pathname.split("/")[1];
 ---
 
-<nav class="sticky top-36 hidden size-fit flex-col items-center gap-4 lg:flex">
+<nav class:list={["size-fit flex-col items-center gap-4", variants[variant]]}>
   {
     LINKS.map((link) => (
       <a
@@ -14,7 +25,7 @@ const currentPath = Astro.url.pathname.split("/")[1];
           (link.href ?? link.name) === currentPath
             ? "bg-secondary !text-onSecondary"
             : "hover:bg-surface hover:text-onSurface",
-          "flex w-[calc(100%+2rem)] items-center justify-center gap-2 whitespace-nowrap rounded-full py-3 text-center text-base capitalize text-primary transition-all",
+          "flex w-[calc(100%+2rem)] items-center justify-center gap-2 whitespace-nowrap rounded-full py-3 text-base capitalize transition-colors",
         ]}
       >
         <svg
