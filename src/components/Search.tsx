@@ -30,7 +30,7 @@ export default function Search({ searchList }: SearchProps) {
       <SearchButton dialogRef={dialogRef} />
       <dialog
         ref={dialogRef}
-        className="w-full flex-col items-center gap-4 text-balance rounded-lg bg-surface p-6 text-onSurface shadow-2xl backdrop:bg-[black] backdrop:opacity-70 open:flex max-sm:mt-4 md:w-1/2 2xl:w-1/3"
+        className="invisible absolute -z-10 flex w-full scale-0 flex-col items-center gap-4 text-balance rounded-lg bg-surface p-6 text-onSurface shadow-2xl transition-transform backdrop:bg-[black] backdrop:opacity-70 open:visible open:scale-100 max-sm:mt-4 md:w-1/2 2xl:w-1/3"
       >
         <div className="flex w-full items-center gap-4">
           <input
@@ -43,7 +43,7 @@ export default function Search({ searchList }: SearchProps) {
             className="h-12 w-full rounded-full bg-surface-high pl-8 text-xl transition-colors focus:outline-none"
           />
           <form method="dialog" onSubmit={() => setQuery("")}>
-            <button className="underline">close</button>
+            <button className="underline hover:no-underline">close</button>
           </form>
         </div>
         {posts.length ? (
@@ -51,7 +51,7 @@ export default function Search({ searchList }: SearchProps) {
             {posts.map((post) => (
               <li
                 key={post.data.title}
-                className="flex flex-col rounded-sm bg-surface-highest p-6 text-base transition-colors hover:bg-surface-high"
+                className="flex flex-col rounded-sm bg-surface-high p-6 text-base transition-colors hover:bg-surface-highest"
               >
                 <a href={`/${post.data.author}/${post.slug}`}>
                   <h2 className="mb-2 text-2xl md:text-4xl">
