@@ -114,9 +114,7 @@ html,
 .background {
   background:
     radial-gradient(rgba(100, 120, 150, 0.8), rgba(100, 120, 150, 0.8)),
-    url("/collage.webp") no-repeat 0% 0%;
-  object-fit: contain;
-  background-size: cover, cover;
+    url("/collage.webp") 0% 0%;
 }
 
 :where(.icon-activatable) {
