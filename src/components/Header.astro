@@ -1,6 +1,6 @@
 ---
 import { getAllPostsSorted } from "../utils";
-import MenuMobile from "./Menu.astro";
+import Menu from "./Menu.astro";
 import Search from "./Search";
 
 const posts = await getAllPostsSorted();
@@ -12,5 +12,5 @@ const posts = await getAllPostsSorted();
     <img src="/logo.svg" width="64" height="64" alt="logo" />
   </a>
   <Search client:load searchList={posts} />
-  <MenuMobile />
+  <Menu />
 </header>
