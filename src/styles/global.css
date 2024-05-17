@@ -46,7 +46,7 @@ html,
 }
 .blue {
   --background: #faf9ff;
-  --on-background: #e2e2e9;
+  --on-background: #121318;
   --primary: white;
   --on-primary: var(--background);
   --secondary: #575e71;
@@ -112,6 +112,11 @@ html,
 }
 
 .background {
+  background:
+    radial-gradient(hsla(226, 60%, 76%, 0.8), hsla(226, 60%, 76%, 0.8)),
+    url("/collage.webp") 0% 0%;
+}
+.dark .background {
   background:
     radial-gradient(rgba(100, 120, 150, 0.8), rgba(100, 120, 150, 0.8)),
     url("/collage.webp") 0% 0%;
