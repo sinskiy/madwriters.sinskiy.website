@@ -6,6 +6,6 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://madwriters.vercel.app",
+  site: "https://madwriters.sinskiy.website",
   integrations: [mdx(), sitemap(), tailwind(), react()],
 });
