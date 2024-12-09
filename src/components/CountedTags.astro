@@ -16,7 +16,7 @@ const countedTags = countTagsWithAuthor(author);
     <ul class="flex flex-wrap gap-2">
       {countedTags.map((tag) => (
         <li>
-          <a href={`/mad-writings/${tag.id}/`} transition:name={tag.id}>
+          <a href={`/mad-writings/${tag.id}/`}>
             {
               <Tag active={activeTagID === tag.id}>
                 {tag.name}

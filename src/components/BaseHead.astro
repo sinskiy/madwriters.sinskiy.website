@@ -1,6 +1,4 @@
 ---
-import { ViewTransitions } from "astro:transitions";
-
 interface Props {
   title: string;
   description: string;
@@ -24,7 +22,6 @@ const { title, description, image = "/thumbnail.webp" } = Astro.props;
     setDarkMode(e.newDocument);
   });
 </script>
-<ViewTransitions />
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />

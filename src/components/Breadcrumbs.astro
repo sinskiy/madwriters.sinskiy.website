@@ -10,7 +10,7 @@ const filteredAndFormattedPaths = filterAndFormatPaths(paths);
     <ul class="flex gap-1 whitespace-nowrap text-sm opacity-80">
       {filteredAndFormattedPaths.map((path) => (
         <li class="[&>span]:last:hidden">
-          <a class="underline" href={path.URL} transition:name={path.URL}>
+          <a class="underline" href={path.URL}>
             {path.name}
           </a>
           <span class="ml-1">/</span>

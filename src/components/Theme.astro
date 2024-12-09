@@ -1,4 +1,4 @@
-<div class="icon-activatable relative flex gap-2" transition:persist="theme">
+<div class="icon-activatable relative flex gap-2">
   <input
     name="theme-toggler"
     id="theme-toggler"
@@ -24,7 +24,7 @@
   import { lightD, darkD } from "../consts";
 
   const themeToggler = document.querySelector(
-    "#theme-toggler",
+    "#theme-toggler"
   ) as HTMLInputElement;
   const themeIconPath = document.querySelector("#theme-icon>path");
 
