@@ -26,6 +26,6 @@ const posts = await getPostsByTag(tagName);
 ---
 
 <PostsWithTags bodyClass={authorObject.bodyClass}>
-  <CountedTags activeTagID={tag} />
+  <CountedTags activeTagID={tag} author={authorObject.name} />
   <Posts {posts} />
 </PostsWithTags>

@@ -6,7 +6,11 @@ export interface Tag {
 }
 
 export const TAGS = AUTHORS.map((author) =>
-  author.tags.map((tag) => ({ ...tag, author: author.name })),
+  author.tags.map((tag) => ({
+    ...tag,
+    author: author.name,
+    authorHref: author.href,
+  })),
 ).flat();
 export const CATEGORIES = AUTHORS.map((author) =>
   author.tags.map((tag) => tag.name),

@@ -42,26 +42,38 @@ export const getPostsByLanguage = async (language: string) => {
 };
 
 export const countTagsWithAuthor = (author?: string) => {
-  const countedTags = TAGS.reduce((acc: { [i: string]: number }, tag) => {
-    if (author && tag.author !== author) {
-      return { ...acc };
-    }
+  const countedTags = TAGS.reduce(
+    (
+      acc: {
+        [key: string]: {
+          id: string;
+          name: string;
+          author: string;
+          authorHref?: string;
+          count: number;
+        };
+      },
+      tag,
+    ) => {
+      if (author && tag.author !== author) {
+        return { ...acc };
+      }
 
-    const currCount = acc[tag.id] ?? 0;
-    // an object where keys are tag id an values are count
-    return {
-      ...acc,
-      [tag.id]: currCount + 1,
-    };
-  }, {});
+      const currCount = acc[tag.id]?.count ?? 0;
+      // an object where keys are tag id an values are count
+      return {
+        ...acc,
+        [tag.id]: {
+          id: tag.id,
+          name: tag.name,
+          author: tag.author,
+          authorHref: tag.authorHref,
+          count: currCount + 1,
+        },
+      };
+    },
+    {},
+  );
 
-  const tagsWithOriginalNames = Object.entries(countedTags).map((tag, i) => {
-    return {
-      id: tag[0],
-      name: TAGS[i].name,
-      count: tag[1],
-    };
-  });
-
-  return tagsWithOriginalNames;
+  return Object.values(countedTags);
 };

@@ -15,6 +15,7 @@ const {
   description,
   categories,
   displayType = "full",
+  author,
 } = Astro.props;
 const tagsID =
   categories &&
@@ -27,7 +28,7 @@ const tagsID =
       {tagsID &&
         categories.map((tag, i) => (
           <li>
-            <a href={`/mad-writings/${tagsID[i]}/`}>
+            <a href={`/${author}/${tagsID[i]}/`}>
               <Tag>{tag}</Tag>
             </a>
           </li>
