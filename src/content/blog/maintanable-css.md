@@ -12,7 +12,8 @@ I think all of you agree that _vanilla CSS is more maintanable than any other so
 - less potential technical debt
 - no deprecation
 - no additional compilation step
-  [52-72% front-end developers use Sass/SCSS](https://2023.stateofcss.com/en-US/other-tools/#pre_post_processors). Is there a reason in using it, considering that all of its features are either already supported in native CSS (variables, nesting), pointless (partials) or dangerous (extend, loops)? Let's take a close look at [all features listed in their tutorial](https://sass-lang.com/guide/):
+
+[52-72% front-end developers use Sass/SCSS](https://2023.stateofcss.com/en-US/other-tools/#pre_post_processors). Is there a reason in using it, considering that all of its features are either already supported in native CSS (variables, nesting), pointless (partials) or dangerous (extend, loops)? Let's take a close look at [all features listed in their tutorial](https://sass-lang.com/guide/):
 
 1. Variables
 
@@ -27,7 +28,9 @@ I think all of you agree that _vanilla CSS is more maintanable than any other so
 
 3. Partials
 
-Just link multiple CSS files 4. Mixins
+Just link multiple CSS files
+
+4. Mixins
 
 Just use native CSS inside of a class to define a mixin. Then you can either provide values for your mixin directly in HTML with style property (`<div style="--color: #ff0000">hello, world!</div>`) or create an additional class that provides values, like this:
 
@@ -43,7 +46,9 @@ Just use native CSS inside of a class to define a mixin. Then you can either pro
 
 5. Extend
 
-This is a dangerous feature and leads to duplicated styles. Just use multiple classes in your HTML 6. Operators
+This is a dangerous feature and leads to duplicated styles. Just use multiple classes in your HTML
+
+6. Operators
 
 [calc() is supported in all major browsers since July 2015, in 98%](https://caniuse.com/calc)
 
