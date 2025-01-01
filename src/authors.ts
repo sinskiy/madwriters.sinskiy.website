@@ -15,7 +15,7 @@ export const AUTHORS: Author[] = [
       { id: "sass-scss", name: "Sass/SCSS" },
       { id: "tailwind", name: "Tailwind" },
       { id: "css-modules", name: "CSS Modules" },
-      { id: "modern-css", name: "Modern CSS" },
+      { id: "modern-css", name: "modern CSS" },
     ],
     title: "posts made by sinskiy",
     bodyClass: "green",
