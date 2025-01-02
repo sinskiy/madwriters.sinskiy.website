@@ -2,7 +2,7 @@
 title: "Maintanable CSS"
 description: "I think all of you agree that _vanilla CSS is more maintanable than any other solution on top_"
 pubDate: "Jan 1 2025"
-categories: ["CSS", "Sass/SCSS", "Tailwind", "CSS Modules", "modern CSS"]
+categories: ["CSS"]
 author: "sinskiy"
 language: "english"
 ---
