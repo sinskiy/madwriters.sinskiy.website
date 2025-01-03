@@ -1,13 +1,13 @@
 ---
 title: "UI frameworks output size: how is Svelte even possible?"
-description: "I tested React, Vue, Angular and Svelte by analyzing the output they produce when running their build commands"
+description: "I tested React, Vue, Angular and Svelte by the output they produce when running their build commands"
 pubDate: "Jan 2 2025"
 categories: ["UI framework", "JavaScript"]
 author: "sinskiy"
 language: "english"
 ---
 
-I tested React, Vue, Angular and Svelte by analyzing the output they produce when running their build commands, using the tools recommended in their documentation for single-page applications (**SPA**):
+I tested React, Vue, Angular and Svelte by the output size they produce when running their build commands, using the tools recommended in their documentation for **single-page applications**:
 
 - **React 18.3** with Vite
 - **Vue 3.5** with create-vue
@@ -23,9 +23,9 @@ For each framework, I tested with 1, 2, 5, 10, 20, 50, and 100 instances of the 
 
 # Code setup
 
-To automate these tests, I created helper functions for file duplication and component generation.
+To automate these tests, I created some helper functions
 
-## File duplication
+## Copy files
 
 ```ts
 import { readFile, unlink, writeFile } from "fs/promises";
@@ -46,7 +46,7 @@ async function copyFiles(path: string, name: string, repeat: number) {
 // copyFiles("./react-counter/src/Counter1.tsx", "Counter", 100);
 ```
 
-## Component generation
+## Generate components and imports
 
 ```ts
 function generateImports(name: string, repeat: number) {
@@ -113,7 +113,7 @@ function generateAngularComponentImports(name: string, repeat: number) {
 
 # Conclusion
 
-Whoa, Svelte is the star of this comparison!
+Well, Svelte is the star of this comparison!
 
 Not only does Svelte produce significantly smaller build sizes compared to other frameworks, but its output also compressed exceptionally well with gzip. While gzip typically reduced file sizes by ~5x for other frameworks, **Svelte's output was reduced by ~10x** _(initially, I chose not to include gzipped results because I assumed compression ratios would be similar across frameworks)_
 
@@ -125,7 +125,7 @@ However, the lack of popular production-ready client-side routing solution is a 
 
 # Developer experience
 
-From a developer experience (DX) perspective, all frameworks were pleasant to use. Personally:
+From a developer experience perspective, all frameworks were pleasant to use. Personally:
 
 - I find Angular's and Vue’s templating languages less intuitive.
 - Angular’s separation of component and class names feels odd.
