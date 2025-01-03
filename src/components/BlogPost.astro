@@ -54,9 +54,39 @@ const tagsID =
 		} -->
   </header>
   <div
-    class="prose prose-sm min-w-full break-words dark:prose-invert md:prose-base prose-headings:my-6"
+    class="prose prose-sm min-w-full break-words dark:prose-invert md:prose-base prose-headings:my-6 prose-table:block prose-table:overflow-x-scroll prose-thead:border-b-secondary prose-tr:border-b-inverse prose-tr:border-opacity-50 prose-hr:border-secondary"
   >
     {displayType === "preview" && description}
     <slot />
   </div>
 </article>
+
+<script>
+  const trs = document.querySelectorAll("tr");
+  for (const tr of trs) {
+    const tds = tr.querySelectorAll(
+      "td:not(:first-child)"
+    ) as NodeListOf<HTMLTableRowElement>;
+    const values: number[] = [];
+    for (const td of tds) {
+      const text = parseInt(td.textContent ?? "");
+      if (!isNaN(text)) {
+        values.push(text);
+      }
+    }
+    const maxValue = Math.max(...values);
+
+    // TODO: remove duplicated iteration over non-numbers
+    for (const td of tds) {
+      const number = parseInt(td.textContent ?? "");
+      if (!isNaN(number)) {
+        const MAX = 55;
+        const WEAKENER = 0.7;
+        const lightnessValue =
+          MAX - Math.round(((WEAKENER * MAX) / maxValue) * number);
+        td.style.backgroundColor = `hsl(0deg 50% ${lightnessValue}%)`;
+        td.style.color = "white";
+      }
+    }
+  }
+</script>

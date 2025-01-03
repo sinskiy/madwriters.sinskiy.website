@@ -41,8 +41,8 @@ html,
   --surface: #ebefe6;
   --surface--low: #f1f5ec;
   --on-surface: #181d17;
-  --normal: 255, 255, 255;
-  --inverse: 0, 0, 0;
+  --normal: 255 255 255;
+  --inverse: 0 0 0;
 }
 .blue {
   --background: #faf9ff;
@@ -56,8 +56,8 @@ html,
   --surface: #eeedf4;
   --surface--low: #f3f3fa;
   --on-surface: #1a1b20;
-  --normal: 255, 255, 255;
-  --inverse: 0, 0, 0;
+  --normal: 255 255 255;
+  --inverse: 0 0 0;
 }
 
 .dark,
@@ -75,8 +75,8 @@ html,
   --surface: #222222;
   --surface--low: #1d1d1d;
   --on-surface: #e6e6e6;
-  --normal: 0, 0, 0;
-  --inverse: 255, 255, 255;
+  --normal: 0 0 0;
+  --inverse: 255 255 255;
 }
 .dark .green,
 .dark.green {
@@ -91,8 +91,8 @@ html,
   --surface: #1c211b;
   --surface--low: #181d17;
   --on-surface: #e0e4db;
-  --normal: 0, 0, 0;
-  --inverse: 255, 255, 255;
+  --normal: 0 0 0;
+  --inverse: 255 255 255;
 }
 .dark .blue,
 .dark.blue {
@@ -107,8 +107,8 @@ html,
   --surface: #1e1f25;
   --surface--low: #1a1b20;
   --on-surface: #e2e2e9;
-  --normal: 0, 0, 0;
-  --inverse: 255, 255, 255;
+  --normal: 0 0 0;
+  --inverse: 255 255 255;
 }
 
 .background {

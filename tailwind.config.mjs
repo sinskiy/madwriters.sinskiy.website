@@ -8,8 +8,8 @@ export default {
     colors: {
       transparent: "transparent",
       current: "currentColor",
-      normal: "rgba(var(--normal), <alpha-value>)",
-      inverse: "rgba(var(--inverse), <alpha-value>)",
+      normal: "rgb(var(--normal) / <alpha-value>)",
+      inverse: "rgb(var(--inverse) / <alpha-value>)",
       primary: "var(--primary)",
       onPrimary: "var(--on-primary)",
       secondary: "var(--secondary)",
