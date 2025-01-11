@@ -41,39 +41,22 @@ export const getPostsByLanguage = async (language: string) => {
   });
 };
 
-export const countTagsWithAuthor = (author?: string) => {
-  const countedTags = TAGS.reduce(
-    (
-      acc: {
-        [key: string]: {
-          id: string;
-          name: string;
-          author: string;
-          authorHref?: string;
-          count: number;
-        };
-      },
-      tag,
-    ) => {
-      if (author && tag.author !== author) {
-        return { ...acc };
-      }
+export const countTagsWithAuthor = async (author?: string) => {
+  const countedTags = [];
+  for (const tag of TAGS) {
+    if (author && tag.author !== author) {
+      continue;
+    }
 
-      const currCount = acc[tag.id]?.count ?? 0;
-      // an object where keys are tag id an values are count
-      return {
-        ...acc,
-        [tag.id]: {
-          id: tag.id,
-          name: tag.name,
-          author: tag.author,
-          authorHref: tag.authorHref,
-          count: currCount + 1,
-        },
-      };
-    },
-    {},
-  );
+    const allPosts = await getAllPostsSorted();
+    const withTag = allPosts.filter((post) => {
+      if (!post.data.categories) return false;
+
+      return post.data.categories.includes(tag.name);
+    });
+
+    countedTags.push({ ...tag, count: withTag.length });
+  }
 
   return Object.values(countedTags);
 };

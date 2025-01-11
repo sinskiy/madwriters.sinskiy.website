@@ -8,13 +8,13 @@ interface Props {
 }
 
 const { author, activeTagID } = Astro.props;
-const countedTags = countTagsWithAuthor(author);
+const countedTags = await countTagsWithAuthor(author);
 ---
 
 {
   countedTags.length !== 0 && (
     <ul class="flex flex-wrap gap-2">
-      {countedTags.map((tag) => (
+      {countedTags.map(async (tag) => (
         <li>
           <a href={`/${tag.authorHref ?? tag.author}/${tag.id}/`}>
             {
